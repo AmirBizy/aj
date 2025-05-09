@@ -76,8 +76,8 @@
                     <p>I build scalable web solutions with creative vision.</p>
                     <div class="about-social text-center">
                         <ul>
-                            <li><a href="#"><i class="ri-facebook-circle-fill"></i></a></li>
-                            <li><a href="#"><i class="ri-twitter-x-line"></i></a></li>
+                            <li><a href="#"><i class="ri-instagram-fill"></i></a></li>
+                            <li><a href="#"><i class="ri-telegram-fill"></i></a></li>
                             <li><a href="#"><i class="ri-linkedin-fill"></i></a></li>
                             <li><a href="#"><i class="ri-github-line"></i></a></li>
                         </ul>
@@ -97,12 +97,13 @@
                 <div class="about-content-part-bottom wow fadeInUp delay-0-2s"><h2>Company I Worked With</h2>
                     <div class="company-list">
                         <div class="scroller" data-direction="left" data-speed="slow">
-                            <div class="scroller__inner"><img src="{{ url('assets/images/client-logos/partner1.png') }}" alt=""> <img
-                                    src="{{ url('assets/images/client-logos/partner2.png') }}" alt=""> <img
-                                    src="{{ url('assets/images/client-logos/partner3.png') }}" alt=""> <img
-                                    src="{{ url('assets/images/client-logos/partner4.png') }}" alt=""> <img
-                                    src="{{ url('assets/images/client-logos/partner5.png') }}" alt=""> <img
-                                    src="{{ url('assets/images/client-logos/partner1.png') }}" alt=""></div>
+                            <div class="scroller__inner">
+                                <a href="https://adib.com.tr/en" target="_blank"><img src="{{ url('assets/images/client-logos/adib.png') }}" width="120px" height="40px" class="object-fit-cover" alt=""></a>
+                                <a href="https://pevas.ir" target="_blank"><img src="{{ url('assets/images/client-logos/pivas.webp') }}" width="40px" height="40px" class="object-fit-cover" alt=""></a>
+                                <a href="https://www.kayer.co.ir/en" target="_blank"><img src="{{ url('assets/images/client-logos/kayer.png') }}" width="100px" height="40px" class="object-fit-cover" alt=""></a>
+                                <a href="https://www.karlancer.com" target="_blank"><img src="{{ url('assets/images/client-logos/karlancer.ico') }}" width="40px" height="40px" class="object-fit-cover" alt=""></a>
+                                <a href="https://ponisha.ir" target="_blank"><img src="{{ url('assets/images/client-logos/ponisha.png') }}" width="40px" height="40px" class="object-fit-cover" alt=""></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -201,36 +202,16 @@
         </div>
     </div>
 </section>
-<footer class="main-footer">
-    <div class="footer-bottom pt-50 pb-40">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="copyright-text"><p>Copyright @2023,<a href="index-2.html">Bentos</a>All Rights Reserved.
-                        </p></div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="copyright-text extra-copyright"><p>Crafted with ❤️ Tanvir Hossain</p></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+
+@include('layouts.home.footer')
+
 <div class="progress-wrap cursor-pointer"><i class="ri-arrow-up-double-line"></i>
     <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
         <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
     </svg>
 </div>
-<script src="{{ url('assets/js/jquery-3.6.0.min.js') }}"></script>
-<script src="{{ url('assets/js/bootstrap.min.js') }}"></script>
-<script src="{{ url('assets/js/appear.min.js') }}"></script>
-<script src="{{ url('assets/js/gsap.min.js') }}"></script>
-<script src="{{ url('assets/js/jquery.magnific-popup.min.js') }}"></script>
-<script src="{{ url('assets/js/slick.min.js') }}"></script>
-<script src="{{ url('assets/js/jquery.nice-select.min.js') }}"></script>
-<script src="{{ url('assets/js/imagesloaded.pkgd.min.js') }}"></script>
-<script src="{{ url('assets/js/isotope.pkgd.min.js') }}"></script>
-<script src="{{ url('assets/js/wow.min.js') }}"></script>
-<script src="{{ url('assets/js/script.js') }}"></script>
+
+@include('layouts.home.script')
+
 </body>
 </html>
