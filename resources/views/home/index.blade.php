@@ -21,7 +21,7 @@
                 <div class="col-lg-8">
                     <div class="about-content-part wow fadeInUp delay-0-2s">
 {{--                        <p>Hello There!</p>--}}
-                        <h2>Turning complex ideas into powerful web apps—optimized for speed, built for scale, and ready for what’s next.</h2>
+                        <h2>{{ __('messages.about_web') }}</h2>
                         <div class="adress-field">
                             <ul>
                                 <li><i class="ri-circle-fill"></i>{{ __('messages.available_part_time') }}</li>

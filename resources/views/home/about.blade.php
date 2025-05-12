@@ -29,7 +29,7 @@
             <div class="resume-items">
                 <div class="row">
                     <div class="col-xl-6 col-md-6">
-                        <div class="single-resume"><h2>Experience</h2>
+                        <div class="single-resume"><h2>{{ __('messages.experience') }}</h2>
                             <div class="experience-list">
                                 <div class="resume-item wow fadeInUp delay-0-3s">
                                     <div class="icon"><i class="ri-book-line"></i></div>
@@ -51,7 +51,7 @@
                     </div>
                     <div class="col-xl-6 col-md-6">
                         <div class="experience-list">
-                            <div class="single-resume"><h2>Education</h2>
+                            <div class="single-resume"><h2>{{ __('messages.education') }}</h2>
                                 <div class="resume-item wow fadeInUp delay-0-3s">
                                     <div class="icon"><i class="ri-book-line"></i></div>
                                     <div class="content"><span class="years">2013 - 2015</span><h4>Bachelor Degree of
@@ -81,7 +81,7 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12">
                         <div class="section-title text-center wow fadeInUp delay-0-2s"><p>Testinomials</p>
-                            <h2>What clients say!</h2></div>
+                            <h2>{{ __('messages.what_clients_say') }}</h2></div>
                     </div>
                 </div>
                 <div class="row">

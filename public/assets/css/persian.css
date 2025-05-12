@@ -38,3 +38,8 @@ body {
     margin-right: unset !important;
     margin-left: 10px !important;
 }
+
+.resume-item .icon {
+    margin-right: unset !important;
+    margin-left: 20px !important;
+}
