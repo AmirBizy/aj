@@ -1,3 +1,6 @@
+@import "media-query-persian.css";
+
+
 @font-face {
     font-family: yekan-bakh-bold;
     src: url('../fonts/YekanBakh-Bold.ttf');
@@ -31,11 +34,7 @@ body {
     margin-left: auto !important;
 }
 
-@media only screen and (max-width: 991px) {
-    .main-menu .navbar-collapse {
-        left: unset !important;
-        right: 45%;
-        width: 50%;
-        position: absolute;
-    }
+.adress-field ul li i {
+    margin-right: unset !important;
+    margin-left: 10px !important;
 }

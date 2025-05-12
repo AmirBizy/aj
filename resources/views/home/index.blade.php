@@ -19,16 +19,17 @@
                     </div>
                 </div>
                 <div class="col-lg-8">
-                    <div class="about-content-part wow fadeInUp delay-0-2s"><p>Hello There!</p>
+                    <div class="about-content-part wow fadeInUp delay-0-2s">
+{{--                        <p>Hello There!</p>--}}
                         <h2>Turning complex ideas into powerful web apps—optimized for speed, built for scale, and ready for what’s next.</h2>
                         <div class="adress-field">
                             <ul>
-                                <li><i class="ri-circle-fill"></i>Available for Part Time</li>
+                                <li><i class="ri-circle-fill"></i>{{ __('messages.available_part_time') }}</li>
                             </ul>
                         </div>
-                        <div class="hero-btns"><a href="contact.html" download="" class="theme-btn">Download CV<i class="ri-download-line"></i></a></div>
+                        <div class="hero-btns"><a href="contact.html" download="" class="theme-btn">{{ __('messages.download_cv') }}<i class="ri-download-line"></i></a></div>
                     </div>
-                    <div class="about-content-part-bottom wow fadeInUp delay-0-2s"><h2>Company I Worked With</h2>
+                    <div class="about-content-part-bottom wow fadeInUp delay-0-2s"><h2>{{ __('messages.company_i_worked') }}</h2>
                         <div class="company-list">
                             <div class="scroller" data-direction="left" data-speed="slow">
                                 <div class="scroller__inner">
@@ -60,7 +61,6 @@
                     <li data-filter=".design">Design</li>
                     <li data-filter=".branding">Branding</li>
                     <li data-filter=".marketing">Marketing</li>
-                    <li data-filter=".game">Game</li>
                 </ul>
                 <div class="row project-masonry-active">
                     <div class="col-lg-4 col-md-6 item branding game">
