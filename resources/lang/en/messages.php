@@ -17,4 +17,8 @@ return [
     'education' => 'Education',
     'experience' => 'Experience',
     'what_clients_say' => 'What clients say!',
+    'login_admin' => 'Login Admin',
+    'persian' => 'Persian',
+    'english' => 'English',
+    'email_or_username' => 'Email Or Username',
 ];

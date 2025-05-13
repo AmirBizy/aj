@@ -17,4 +17,8 @@ return [
     'education' => 'تحصیلات',
     'experience' => 'تجربه ها',
     'what_clients_say' => 'مشتریان چه می گویند!',
+    'login_admin' => 'ورود به پیشخوان مدیریت',
+    'persian' => 'فارسی',
+    'english' => 'انگلیسی',
+    'email_or_username' => 'ایمیل یا نام کاربری',
 ];
