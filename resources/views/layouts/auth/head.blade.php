@@ -12,8 +12,14 @@
     <link rel="stylesheet" href="{{ url('assets/auth/css/dashlite.rtl.css') }}"/>
     <link id="skin-default" rel="stylesheet" href="{{ url('assets/auth/css/theme.css') }}"/>
 
+{{--    @if(LaravelLocalization::getCurrentLocale() && LaravelLocalization::getCurrentLocale() == 'fa')--}}
+{{--        <link rel="stylesheet" href="{{ url('assets/css/persian/auth.css') }}">--}}
+{{--    @endif--}}
+
     {{-- loader --}}
     <link rel="stylesheet" href="{{ url('assets/css/loader.css') }}">
     {{-- loader --}}
+
+    @yield('css')
 
 </head>
