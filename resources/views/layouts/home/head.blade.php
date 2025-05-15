@@ -27,7 +27,7 @@
 
     {{-- language --}}
     @if(LaravelLocalization::getCurrentLocale() && LaravelLocalization::getCurrentLocale() == 'fa')
-        <link rel="stylesheet" href="{{ url('assets/css/persian.css') }}">
+        <link rel="stylesheet" href="{{ url('assets/css/persian/app.css') }}">
     @endif
 
 {{--    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>--}}

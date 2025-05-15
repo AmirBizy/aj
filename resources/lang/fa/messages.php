@@ -21,4 +21,11 @@ return [
     'persian' => 'فارسی',
     'english' => 'انگلیسی',
     'email_or_username' => 'ایمیل یا نام کاربری',
+    'password' => 'رمز عبور',
+    'enter_email_or_username' => 'نشانی ایمیل یا نام کاربری خود را وارد کنید',
+    'forgot_your_password' => 'رمز عبور را فراموش کردید؟',
+    'enter_your_password' => 'رمز عبور خود را وارد کنید',
+    'login' => 'ورود',
+    'or' => 'یا',
+    'google' => 'گوگل',
 ];

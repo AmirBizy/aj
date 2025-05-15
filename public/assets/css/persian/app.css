@@ -1,19 +1,19 @@
-@import "media-query-persian.css";
+@import "../media-query-persian.css";
 
 
 @font-face {
     font-family: yekan-bakh-bold;
-    src: url('../fonts/YekanBakh-Bold.ttf');
+    src: url('../../fonts/YekanBakh-Bold.ttf');
 }
 
 @font-face {
     font-family: yekan-bakh-regular;
-    src: url('../fonts/YekanBakh-Regular.ttf');
+    src: url('../../fonts/YekanBakh-Regular.ttf');
 }
 
 @font-face {
     font-family: yekan-bakh-semi-bold;
-    src: url('../fonts/YekanBakh-SemiBold.ttf');
+    src: url('../../fonts/YekanBakh-SemiBold.ttf');
 }
 
 * {

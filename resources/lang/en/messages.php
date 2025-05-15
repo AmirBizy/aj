@@ -21,4 +21,11 @@ return [
     'persian' => 'Persian',
     'english' => 'English',
     'email_or_username' => 'Email Or Username',
+    'password' => 'Password',
+    'enter_email_or_username' => 'Enter your email address or username.',
+    'forgot_your_password' => 'Forgot your password?',
+    'enter_your_password' => 'Enter your password.',
+    'login' => 'Login',
+    'or' => 'Or',
+    'google' => 'Google',
 ];

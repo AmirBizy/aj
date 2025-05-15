@@ -16,7 +16,7 @@
                             </a>
                         </div>
                         <div class="card card-bordered">
-                            <div class="card-inner card-inner-lg">
+                            <div class="card-inner card-inner-lg" @if(LaravelLocalization::getCurrentLocale() && LaravelLocalization::getCurrentLocale() == 'fa') dir="rtl" @else dir="ltr" @endif>
                                 <div class="nk-block-head">
                                     <div class="nk-block-head-content">
                                         <h4 class="nk-block-title">{{ __('messages.login_admin') }}</h4>
@@ -31,32 +31,31 @@
                                             <label class="form-label" for="default-01">{{ __('messages.email_or_username') }}</label>
                                         </div>
                                         <div class="form-control-wrap">
-                                            <input type="text" class="form-control form-control-lg" id="default-01" placeholder="نشانی ایمیل یا نام کاربری خود را وارد کنید" />
+                                            <input type="text" class="form-control form-control-lg" id="default-01" placeholder="{{ __('messages.enter_email_or_username') }}" />
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="form-label-group">
-                                            <label class="form-label" for="password">رمز عبور</label>
-                                            <a class="link link-primary link-sm" href="html/pages/auths/auth-reset-v2.html">رمز عبور را فراموش کردید؟</a>
+                                            <label class="form-label" for="password">{{ __('messages.password') }}</label>
+                                            <a class="link link-primary link-sm" href="html/pages/auths/auth-reset-v2.html">{{ __('messages.forgot_your_password') }}</a>
                                         </div>
                                         <div class="form-control-wrap">
                                             <a href="#" class="form-icon form-icon-right passcode-switch lg" data-target="password">
                                                 <em class="passcode-icon icon-show icon ni ni-eye"></em>
                                                 <em class="passcode-icon icon-hide icon ni ni-eye-off"></em>
                                             </a>
-                                            <input type="password" class="form-control form-control-lg" id="password" placeholder="رمز عبور خود را وارد کنید" />
+                                            <input type="password" class="form-control form-control-lg" id="password" placeholder="{{ __('messages.enter_your_password') }}" />
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn btn-lg btn-primary btn-block">ورود</button>
+                                        <button class="btn btn-lg btn-primary btn-block">{{ __('messages.login') }}</button>
                                     </div>
                                 </form>
                                 <div class="text-center pt-4 pb-3">
-                                    <h6 class="overline-title overline-title-sap"><span>یا</span></h6>
+                                    <h6 class="overline-title overline-title-sap"><span>{{ __('messages.or') }}</span></h6>
                                 </div>
                                 <ul class="nav justify-center gx-4">
-                                    <li class="nav-item"><a class="nav-link" href="#">فیس بوک</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#">گوگل</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#">{{ __('messages.google') }}</a></li>
                                 </ul>
                             </div>
                         </div>

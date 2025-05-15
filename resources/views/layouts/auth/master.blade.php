@@ -3,6 +3,22 @@
 
 @include('layouts.auth.head')
 
+{{-- loader --}}
+<div class="loader-full-elem">
+    <div class="banter-loader">
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+    </div>
+</div>
+{{-- loader --}}
+
 <body class="has-rtl nk-body bg-white dark-mode npc-general pg-auth" dir="rtl">
 @yield('content')
 <!-- app-root @e -->
