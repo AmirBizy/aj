@@ -9,6 +9,22 @@
 
 @include('layouts.home.header')
 
+{{-- loader --}}
+<div class="loader-full-elem">
+    <div class="banter-loader">
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+    </div>
+</div>
+{{-- loader --}}
+
 @yield('content')
 
 @include('layouts.home.footer')

@@ -21,6 +21,11 @@
     <link rel="stylesheet" href="{{ url('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ url('assets/css/responsive.css') }}">
 
+    {{-- loader --}}
+    <link rel="stylesheet" href="{{ url('assets/css/loader.css') }}">
+    {{-- loader --}}
+
+    {{-- language --}}
     @if(LaravelLocalization::getCurrentLocale() && LaravelLocalization::getCurrentLocale() == 'fa')
         <link rel="stylesheet" href="{{ url('assets/css/persian.css') }}">
     @endif

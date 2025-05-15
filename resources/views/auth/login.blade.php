@@ -21,7 +21,7 @@
                                     <div class="nk-block-head-content">
                                         <h4 class="nk-block-title">{{ __('messages.login_admin') }}</h4>
 {{--                                        <div class="nk-block-des">--}}
-{{--                                            <p>با استفاده از ایمیل و رمز عبور خود به پنل دش‌لایت دسترسی پیدا کنید.</p>--}}
+{{--                                            <p>با استفاده از ایمیل و رمز عبور خود به پنل دسترسی پیدا کنید.</p>--}}
 {{--                                        </div>--}}
                                     </div>
                                 </div>
