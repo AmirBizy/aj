@@ -15,7 +15,8 @@ Route::group(
             return Route::post('/livewire/update', $handle);
         });
 
-        Route::get('/auth', [AuthController::class , 'index'])->middleware('guest')->name('index');
+        Route::get('/auth', [AuthController::class , 'index'])->middleware('guest')->name('login');
+        Route::post('/logout', [AuthController::class , 'logout'])->middleware('auth')->name('logout');
     }
 );
 // Auth Routes

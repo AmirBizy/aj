@@ -1,7 +1,7 @@
 ﻿/*
 * ----------------------------------------------------------------------------------------
-Author       : Hridoy
-Template Name: Bentos - Personal Portfolio HTML Template
+Author       : Amirreza Jafari
+Template Name: Bentos - Personal WebSite
 Version      : 1.0
 * ----------------------------------------------------------------------------------------
 */
@@ -33,6 +33,9 @@ Version      : 1.0
 * 01.GLOBAL STYLE
 * ----------------------------------------------------------------------------------------
 */
+
+@import "custom.css";
+
 :root {
     --main-color: #9f9f9f;
     --heading-color: #fff;

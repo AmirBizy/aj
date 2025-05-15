@@ -5,6 +5,7 @@ namespace App\Livewire\Auth;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use Jantinnerezo\LivewireAlert\Facades\LivewireAlert;
 
 class Login extends Component
 {
@@ -29,10 +30,17 @@ class Login extends Component
             'password' => $data['password'],
         ])) {
             session()->regenerate();
-            return redirect()->route('home.index');
+            return redirect()->route('admin.index');
         }
 
-        $this->addError('invalid_login', 'اطلاعات ورود نادرست است.');
+        $this->addError('invalid_login', __('messages.invalid_login'));
+
+        LivewireAlert::title(__('messages.email_or_password_wrong'))
+            ->error()
+            ->toast()
+            ->position('top-end')
+            ->timer(5000)
+            ->show();
     }
 
     public function render()

@@ -1,0 +1,11 @@
+body.swal2-no-backdrop .swal2-container .swal2-popup {
+    background: #272727 !important;
+    box-shadow: unset !important;
+    display: flex !important;
+    align-items: center !important;
+    direction: ltr !important;
+}
+
+body.swal2-toast-shown .swal2-container.swal2-top-end, body.swal2-toast-shown .swal2-container.swal2-top-right {
+    inset: auto auto 0 0 !important;
+}

@@ -1,7 +1,6 @@
 <script src="{{ url('assets/admin/js/bundle.js') }}"></script>
 <script src="{{ url('assets/admin/js/scripts.js') }}"></script>
-
-<script src="{{ url('assets/js/sweetalert2.js') }}"></script>
+<script src="{{ url('assets/admin/js/charts/chart-hotel.js') }}"></script>
 
 {{-- loader --}}
 <script>
@@ -16,3 +15,5 @@
     });
 </script>
 {{-- loader --}}
+
+@yield('script')

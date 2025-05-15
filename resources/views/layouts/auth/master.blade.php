@@ -35,13 +35,13 @@
                     <ul class="country-list text-center gy-2">
                         <li>
                             <a href="#" class="country-item">
-                                <img src="{{ url('assets/auth/images/flags/iran.png') }}" alt="" class="country-flag"/>
+                                <img src="{{ url('assets/admin/images/flags/iran.png') }}" alt="" class="country-flag"/>
                                 <span class="country-name">ایران</span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="country-item">
-                                <img src="{{ url('assets/auth/images/flags/english.png') }}" alt="" class="country-flag"/>
+                                <img src="{{ url('assets/admin/images/flags/english.png') }}" alt="" class="country-flag"/>
                                 <span class="country-name">ایالات متحده آمریکا</span>
                             </a>
                         </li>

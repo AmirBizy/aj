@@ -12,13 +12,14 @@ return Application::configure(basePath: dirname(__DIR__))
         then: function () {
             Route::middleware('web')
                 ->name('admin.')
-//            ->middleware('auth')
-                ->group(base_path('routes/web.php'));
+//                ->middleware('auth')
+                ->group(base_path('routes/admin.php'));
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
 
             Route::middleware('web')
+//                ->name('auth.')
                 ->group(base_path('routes/auth.php'));
         },
     )

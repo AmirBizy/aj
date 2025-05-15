@@ -78,14 +78,14 @@
                                         @if(LaravelLocalization::getCurrentLocale() == 'fa')
                                             <li>
                                                 <a href="{{ LaravelLocalization::getLocalizedURL('en') }}" class="language-item">
-                                                    <img src="{{ url('assets/auth/images/flags/english.png') }}" alt="" class="language-flag" />
+                                                    <img src="{{ url('assets/admin/images/flags/english.png') }}" alt="" class="language-flag" />
                                                     <span class="language-name">{{ __('messages.english') }}</span>
                                                 </a>
                                             </li>
                                         @else
                                             <li>
                                                 <a href="{{ LaravelLocalization::getLocalizedURL('fa') }}" class="language-item">
-                                                    <img src="{{ url('assets/auth/images/flags/iran.png') }}" alt="" class="language-flag" />
+                                                    <img src="{{ url('assets/admin/images/flags/iran.png') }}" alt="" class="language-flag" />
                                                     <span class="language-name">{{ __('messages.persian') }}</span>
                                                 </a>
                                             </li>

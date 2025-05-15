@@ -1,0 +1,7 @@
+body.swal2-no-backdrop .swal2-container .swal2-popup {
+    background: #272727 !important;
+    box-shadow: unset !important;
+    display: flex !important;
+    align-items: center !important;
+    direction: rtl !important;
+}

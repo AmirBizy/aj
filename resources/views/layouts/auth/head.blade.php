@@ -9,16 +9,22 @@
     <!-- Page Title  -->
     <title>{{ __('messages.login_admin') }}</title>
     <!-- StyleSheets  -->
-    <link rel="stylesheet" href="{{ url('assets/auth/css/dashlite.rtl.css') }}"/>
-    <link id="skin-default" rel="stylesheet" href="{{ url('assets/auth/css/theme.css') }}"/>
+    <link rel="stylesheet" href="{{ url('assets/admin/css/dashlite.rtl.css') }}"/>
+    <link id="skin-default" rel="stylesheet" href="{{ url('assets/admin/css/theme.css') }}"/>
 
 {{--    @if(LaravelLocalization::getCurrentLocale() && LaravelLocalization::getCurrentLocale() == 'fa')--}}
-{{--        <link rel="stylesheet" href="{{ url('assets/css/persian/auth.css') }}">--}}
+{{--        <link rel="stylesheet" href="{{ url('assets/css/persian/admin.css') }}">--}}
 {{--    @endif--}}
 
     {{-- loader --}}
     <link rel="stylesheet" href="{{ url('assets/css/loader.css') }}">
     {{-- loader --}}
+
+    @if(LaravelLocalization::getCurrentLocale() && LaravelLocalization::getCurrentLocale() == 'fa')
+        <link id="skin-default" rel="stylesheet" href="{{ url('assets/css/livewire-alert/fa.css') }}"/>
+    @else
+        <link id="skin-default" rel="stylesheet" href="{{ url('assets/css/livewire-alert/en.css') }}"/>
+    @endif
 
     @yield('css')
 
