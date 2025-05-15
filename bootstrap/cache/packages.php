@@ -10,6 +10,17 @@
       0 => 'Hekmatinasser\\Verta\\Laravel\\VertaServiceProvider',
     ),
   ),
+  'jantinnerezo/livewire-alert' => 
+  array (
+    'aliases' => 
+    array (
+      'LivewireAlert' => 'Jantinnerezo\\LivewireAlert\\LivewireAlert',
+    ),
+    'providers' => 
+    array (
+      0 => 'Jantinnerezo\\LivewireAlert\\LivewireAlertServiceProvider',
+    ),
+  ),
   'laravel/pail' => 
   array (
     'providers' => 

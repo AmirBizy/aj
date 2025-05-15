@@ -28,4 +28,5 @@ return [
     'login' => 'Login',
     'or' => 'Or',
     'google' => 'Google',
+    'invalid_login' => 'Invalid Login',
 ];
