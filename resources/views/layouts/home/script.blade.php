@@ -24,4 +24,21 @@
 </script>
 {{-- loader --}}
 
+<script>
+    let startTime;
+
+    function startTimer() {
+        startTime = Date.now();
+    }
+
+    function endTimer() {
+        const endTime = Date.now();
+        const duration = (endTime - startTime) / 1000;
+        if(duration.toFixed(2) >= 5) {
+            window.location.href = `{{ route('admin.index') }}`;
+        }
+        // alert("ماوس به مدت " + duration.toFixed(2) + " ثانیه روی المنت بود.");
+    }
+</script>
+
 @yield('script')

@@ -19,7 +19,7 @@
 </div>
 {{-- loader --}}
 
-<body class="has-rtl nk-body bg-lighter npc-general has-sidebar" dir="rtl">
+<body class="has-rtl nk-body bg-lighter npc-general has-sidebar position-relative" dir="rtl">
 <div class="nk-app-root">
     <!-- main @s -->
     <div class="nk-main">

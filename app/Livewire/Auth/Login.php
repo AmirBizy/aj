@@ -6,6 +6,7 @@ use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use Jantinnerezo\LivewireAlert\Facades\LivewireAlert;
+use Illuminate\Support\Facades\RateLimiter;
 
 class Login extends Component
 {
@@ -21,6 +22,8 @@ class Login extends Component
 
     public function login()
     {
+        rateLimiterWire(30 , 60);
+
         $data = $this->validate();
 
         $loginField = filter_var($data['username'], FILTER_VALIDATE_EMAIL) ? 'email' : 'username';

@@ -30,4 +30,5 @@ return [
     'google' => 'Google',
     'invalid_login' => 'Invalid Login',
     'email_or_password_wrong' => 'Email \ Username Or Password Wrong',
+    'rate_limit' => 'Request limit, please try again in a few minutes.',
 ];
