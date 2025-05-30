@@ -12,8 +12,9 @@
     <link rel="stylesheet" href="{{ url('assets/admin/css/dashlite.rtl.css') }}"/>
     <link id="skin-default" rel="stylesheet" href="{{ url('assets/admin/css/theme.css') }}"/>
 
-{{--    @if(LaravelLocalization::getCurrentLocale() && LaravelLocalization::getCurrentLocale() == 'fa')--}}
-{{--        <link rel="stylesheet" href="{{ url('assets/css/persian/admin.css') }}">--}}
+{{--    @if(LaravelLocalization::getCurrentLocale() && LaravelLocalization::getCurrentLocale() == 'en')--}}
+{{--        <link rel="stylesheet" href="{{ url('assets/css/sweet-alert/en.css') }}">--}}
+{{--        <link rel="stylesheet" href="{{ url('assets/css/sweet-alert/dark.css') }}">--}}
 {{--    @endif--}}
 
     {{-- loader --}}

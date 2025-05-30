@@ -31,4 +31,6 @@ return [
     'invalid_login' => 'Invalid Login',
     'email_or_password_wrong' => 'Email \ Username Or Password Wrong',
     'rate_limit' => 'Request limit, please try again in a few minutes.',
+    'auth_google_failed' => 'Invalid Google account login, try again.',
+    'auth_google_invalid_info' => 'The selected Google account is incorrect, please select the correct email.',
 ];

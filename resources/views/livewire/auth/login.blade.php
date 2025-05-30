@@ -54,7 +54,15 @@
                     <h6 class="overline-title overline-title-sap"><span>{{ __('messages.or') }}</span></h6>
                 </div>
                 <ul class="nav justify-center gx-4">
-                    <li class="nav-item"><a class="nav-link" href="#">{{ __('messages.google') }}</a></li>
+                    <li class="nav-item">
+                        <button class="nav-link" wire:click="authGoogle">
+                            <span>{{ __('messages.google') }}</span>
+                            <div wire:loading class="m-1" wire:target="authGoogle">
+                                <span class="spinner-border spinner-border-sm" wire:loading.class="d-flex"  aria-hidden="true"></span>
+                                <span class="visually-hidden" role="status">Loading...</span>
+                            </div>
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>

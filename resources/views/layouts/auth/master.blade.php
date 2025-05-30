@@ -54,5 +54,7 @@
     <!-- .modla-dialog -->
 </div>
 <!-- .modal -->
+
+{{--@include('sweetalert::alert')--}}
 </body>
 </html>

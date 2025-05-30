@@ -1,0 +1,17 @@
+.swal2-container {
+    overflow-y: auto;
+    position: absolute !important;
+    height: auto !important;
+    padding: 0 !important;
+    width: auto !important;
+    display: inline-table !important;
+}
+
+.swal2-popup {
+    width: auto !important;
+    padding: 1rem !important;
+    background: rgb(255, 255, 255);
+    display: grid;
+    direction: ltr;
+}
+

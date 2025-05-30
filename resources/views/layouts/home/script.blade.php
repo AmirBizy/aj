@@ -10,19 +10,7 @@
 <script src="{{ url('assets/js/wow.min.js') }}"></script>
 <script src="{{ url('assets/js/script.js') }}"></script>
 
-{{-- loader --}}
-<script>
-    document.body.style.overflow = 'hidden';
-    window.addEventListener('load', function () {
-        var loader = document.querySelector('.loader-full-elem');
-        loader.style.opacity = '0';
-        setTimeout(() => {
-            loader.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }, 100);
-    });
-</script>
-{{-- loader --}}
+<script src="{{ url('assets/js/app.js') }}"></script>
 
 <script>
     let startTime;
@@ -37,7 +25,6 @@
         if(duration.toFixed(2) >= 5) {
             window.location.href = `{{ route('admin.index') }}`;
         }
-        // alert("ماوس به مدت " + duration.toFixed(2) + " ثانیه روی المنت بود.");
     }
 </script>
 
