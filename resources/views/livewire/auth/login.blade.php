@@ -26,7 +26,7 @@
                     <div class="form-group">
                         <div class="form-label-group">
                             <label class="form-label" for="password">{{ __('messages.password') }}</label>
-                            <a class="link link-primary link-sm" href="html/pages/auths/auth-reset-v2.html">{{ __('messages.forgot_your_password') }}</a>
+{{--                            <a class="link link-primary link-sm" href="html/pages/auths/auth-reset-v2.html">{{ __('messages.forgot_your_password') }}</a>--}}
                         </div>
                         <div class="form-control-wrap">
                             <a href="#" class="form-icon form-icon-right passcode-switch lg" data-target="password">
