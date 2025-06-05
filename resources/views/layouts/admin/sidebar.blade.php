@@ -16,10 +16,16 @@
         <div class="nk-sidebar-content">
             <div class="nk-sidebar-menu" data-simplebar>
                 <ul class="nk-menu">
-                    <li class="nk-menu-item">
+                    <li class="nk-menu-item {{ Str::startsWith(Route::currentRouteName(), ['admin.index']) ? 'active current-page' : '' }}">
                         <a href="{{ route('admin.index') }}" class="nk-menu-link">
                             <span class="nk-menu-icon"><em class="icon ni ni-dashboard-fill"></em></span>
                             <span class="nk-menu-text">داشبورد</span>
+                        </a>
+                    </li>
+                    <li class="nk-menu-item {{ Str::startsWith(Route::currentRouteName(), ['admin.about_me.index']) ? 'active current-page' : '' }}">
+                        <a href="{{ route('admin.about_me.index') }}" class="nk-menu-link">
+                            <span class="nk-menu-icon"><em class="icon ni ni-user-alt"></em></span>
+                            <span class="nk-menu-text">درباره من</span>
                         </a>
                     </li>
                     <!-- .nk-menu-item -->
@@ -54,81 +60,6 @@
                                 <a href="html/hotel/room-type.html" class="nk-menu-link"><span class="nk-menu-text">انواع اتاق</span></a>
                             </li>
                         </ul>
-                    </li>
-                    <!-- .nk-menu-item -->
-                    <li class="nk-menu-item has-sub">
-                        <a href="#" class="nk-menu-link nk-menu-toggle">
-                            <span class="nk-menu-icon"><em class="icon ni ni-reports"></em></span>
-                            <span class="nk-menu-text">گزارش ها</span>
-                        </a>
-                        <ul class="nk-menu-sub">
-                            <li class="nk-menu-item">
-                                <a href="html/hotel/report-stocks.html" class="nk-menu-link"><span class="nk-menu-text">سهام</span></a>
-                            </li>
-                            <li class="nk-menu-item">
-                                <a href="html/hotel/report-expenses.html" class="nk-menu-link"><span class="nk-menu-text">هزینه ها</span></a>
-                            </li>
-                            <li class="nk-menu-item">
-                                <a href="html/hotel/report-booking.html" class="nk-menu-link"><span class="nk-menu-text">رزروها</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- .nk-menu-item -->
-                    <li class="nk-menu-item">
-                        <a href="html/hotel/customers.html" class="nk-menu-link">
-                            <span class="nk-menu-icon"><em class="icon ni ni-users-fill"></em></span>
-                            <span class="nk-menu-text">مشتریان</span>
-                        </a>
-                    </li>
-                    <!-- .nk-menu-item -->
-                    <li class="nk-menu-item has-sub">
-                        <a href="#" class="nk-menu-link nk-menu-toggle">
-                            <span class="nk-menu-icon"><em class="icon ni ni-coins"></em></span>
-                            <span class="nk-menu-text">پرداخت ها</span>
-                        </a>
-                        <ul class="nk-menu-sub">
-                            <li class="nk-menu-item">
-                                <a href="html/hotel/payment-methods.html" class="nk-menu-link"><span class="nk-menu-text">روش های پرداخت</span></a>
-                            </li>
-                            <li class="nk-menu-item">
-                                <a href="html/hotel/invoice-list.html" class="nk-menu-link"><span class="nk-menu-text">لیست فاکتورها</span></a>
-                            </li>
-                            <li class="nk-menu-item">
-                                <a href="html/hotel/invoice-details.html" class="nk-menu-link"><span class="nk-menu-text">جزئیات فاکتور</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- .nk-menu-item -->
-                    <li class="nk-menu-item">
-                        <a href="html/hotel/support.html" class="nk-menu-link">
-                            <span class="nk-menu-icon"><em class="icon ni ni-chat-circle-fill"></em></span>
-                            <span class="nk-menu-text">پشتیبانی</span>
-                        </a>
-                    </li>
-                    <!-- .nk-menu-item -->
-                    <li class="nk-menu-item">
-                        <a href="html/hotel/settings.html" class="nk-menu-link">
-                            <span class="nk-menu-icon"><em class="icon ni ni-setting-alt-fill"></em></span>
-                            <span class="nk-menu-text">تنظیمات</span>
-                        </a>
-                    </li>
-                    <!-- .nk-menu-item -->
-                    <li class="nk-menu-heading">
-                        <h6 class="overline-title text-primary-alt">بازگشت به</h6>
-                    </li>
-                    <!-- .nk-menu-item -->
-                    <li class="nk-menu-item">
-                        <a href="{{ route('admin.index') }}" class="nk-menu-link">
-                            <span class="nk-menu-icon"><em class="icon ni ni-dashlite-alt"></em></span>
-                            <span class="nk-menu-text">داشبورد اصلی</span>
-                        </a>
-                    </li>
-                    <!-- .nk-menu-item -->
-                    <li class="nk-menu-item">
-                        <a href="html/components.html" class="nk-menu-link">
-                            <span class="nk-menu-icon"><em class="icon ni ni-layers-fill"></em></span>
-                            <span class="nk-menu-text">همه کامپوننت ها</span>
-                        </a>
                     </li>
                     <!-- .nk-menu-item -->
                 </ul>
