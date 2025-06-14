@@ -45,5 +45,6 @@
 <!-- app-root @e -->
 <!-- JavaScript -->
 @include('layouts.admin.script')
+@include('sweetalert::alert')
 </body>
 </html>

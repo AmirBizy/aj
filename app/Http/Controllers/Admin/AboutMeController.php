@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\AboutMe;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AboutMeController extends Controller
 {
@@ -22,6 +23,7 @@ class AboutMeController extends Controller
             $about_me->translateArray($fields, $locale);
         }
 
-        return back()->with('success', 'اطلاعات با موفقیت ذخیره شد.');
+        Alert::success('ویرایش موفق', 'اطلاعات با موفقیت ذخیره شد')->showConfirmButton('باشه', '#6576ff')->autoClose(5000);
+        return back();
     }
 }
