@@ -50,8 +50,17 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
+                                                                    @elseif($type === 'file')
+                                                                    <div class="col-lg-6">
+                                                                        <div class="form-group">
+                                                                            <label class="form-label" for="{{ $inputId }}">{{ $label }}</label>
+                                                                            <div class="form-control-wrap">
+                                                                                <input type="file" name="{{ $inputName }}" class="form-control" id="{{ $inputId }}" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                 @else
-                                                                    <div class="col-sm-6">
+                                                                    <div class="col-lg-6">
                                                                         <div class="form-group">
                                                                             <label class="form-label" for="{{ $inputId }}">{{ $label }}</label>
                                                                             <div class="form-control-wrap">

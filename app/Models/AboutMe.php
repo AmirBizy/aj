@@ -18,6 +18,7 @@ class AboutMe extends Model
         return [
             'title' => 'عنوان',
             'btn_title' => 'متن دکمه',
+            'resume_file' => 'فایل رزومه',
             'content' => 'محتوا',
         ];
     }
@@ -27,6 +28,7 @@ class AboutMe extends Model
         return [
             'title' => 'text',
             'btn_title' => 'text',
+            'resume_file' => 'file',
             'content' => 'textarea',
         ];
     }

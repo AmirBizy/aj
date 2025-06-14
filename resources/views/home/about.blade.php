@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-lg-8">
                     <div class="about-content-part wow fadeInUp delay-0-2s"><h2>{{ $about_me->getTranslation('title') }}</h2>
-                        <div class="text-white">
+                        <div>
                             {!! $about_me->getTranslation('content') !!}
                         </div>
                         <div class="hero-btns"><a href="contact.html" class="theme-btn">{!! $about_me->getTranslation('btn_title') !!} <i class="ri-mail-send-line"></i></a></div>
