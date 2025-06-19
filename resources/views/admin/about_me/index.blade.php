@@ -24,7 +24,7 @@
                                         </ul>
                                     @endif
                                     @if(LaravelLocalization::getSupportedLocales())
-                                        <form action="{{ route('admin.about_me.update') }}" method="post">
+                                        <form action="{{ route('admin.about_me.update') }}" method="post" enctype="multipart/form-data">
                                             @csrf
                                             @method('PATCH')
                                             <div class="tab-content">
@@ -56,6 +56,14 @@
                                                                             <label class="form-label" for="{{ $inputId }}">{{ $label }}</label>
                                                                             <div class="form-control-wrap">
                                                                                 <input type="file" name="{{ $inputName }}" class="form-control" id="{{ $inputId }}" />
+                                                                                @php
+                                                                                    $filePath = $about_me->getTranslation($field, $localeItemCode);
+                                                                                @endphp
+                                                                                @if($filePath)
+                                                                                    <div class="mt-2">
+                                                                                        <a href="{{ asset('storage/' . $filePath) }}" target="_blank">مشاهده فایل فعلی</a>
+                                                                                    </div>
+                                                                                @endif
                                                                             </div>
                                                                         </div>
                                                                     </div>

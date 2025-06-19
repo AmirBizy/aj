@@ -19,13 +19,25 @@ trait HasTranslations
     }
 
     // set and create with multi lang
-    public function setTranslation(string $key, string $value, string $locale = null)
+    public function setTranslation(string $key, mixed $value, string $locale = null)
     {
         $locale = $locale ?? app()->getLocale();
-        $this->translations()->updateOrCreate(
-            ['key' => $key, 'locale' => $locale],
-            ['value' => $value]
-        );
+
+        // اگر مقدار فایل بود
+        if ($value instanceof \Illuminate\Http\UploadedFile) {
+            $filePath = $value->store("translations/{$this->getTable()}/{$key}/{$locale}", 'public');
+
+            $this->translations()->updateOrCreate(
+                ['key' => $key, 'locale' => $locale],
+                ['value' => $filePath]
+            );
+        } else {
+            // مقدار متنی
+            $this->translations()->updateOrCreate(
+                ['key' => $key, 'locale' => $locale],
+                ['value' => $value]
+            );
+        }
     }
 
     // update with multi lang

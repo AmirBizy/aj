@@ -22,8 +22,17 @@ class AboutMeController extends Controller
         $about_me = AboutMe::first();
 
         // update data with multi language
+        // dd($request->input('translations', []));
         foreach ($request->input('translations', []) as $locale => $fields) {
-            $about_me->translateArray($fields, $locale);
+            foreach ($fields as $field => $value) {
+                $file = $request->file("translations.$locale.$field");
+
+                if ($file instanceof \Illuminate\Http\UploadedFile) {
+                    $about_me->setTranslation($field, $file, $locale);
+                } else {
+                    $about_me->setTranslation($field, $value, $locale);
+                }
+            }
         }
 
         // show success message after updated data and back
