@@ -11,14 +11,15 @@ class AboutMe extends Model
 
     protected $table = 'about_me';
     protected $guarded = [];
-    public array $translatableFields = ['title', 'content', 'btn_title'];
+    public array $translatableFields = ['title', 'btn_title', 'resume', 'image', 'content'];
 
     public function getOrderedTranslatableFields(): array
     {
         return [
             'title' => 'عنوان',
             'btn_title' => 'متن دکمه',
-            'resume_file' => 'فایل رزومه',
+            'resume' => 'فایل رزومه',
+            'image' => 'تصویر',
             'content' => 'محتوا',
         ];
     }
@@ -28,7 +29,8 @@ class AboutMe extends Model
         return [
             'title' => 'text',
             'btn_title' => 'text',
-            'resume_file' => 'file',
+            'resume' => 'file',
+            'image' => 'file',
             'content' => 'textarea',
         ];
     }

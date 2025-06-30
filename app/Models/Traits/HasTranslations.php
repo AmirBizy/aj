@@ -23,8 +23,21 @@ trait HasTranslations
     {
         $locale = $locale ?? app()->getLocale();
 
-        // اگر مقدار فایل بود
+        // فایل جدید؟
         if ($value instanceof \Illuminate\Http\UploadedFile) {
+
+            $filePath = $value->store("translations/{$this->getTable()}/{$key}/{$locale}", 'public');
+
+            // حذف فایل قدیمی
+            $old = $this->translations()
+                ->where('key', $key)
+                ->where('locale', $locale)
+                ->first();
+
+            if ($old && \Storage::disk('public')->exists($old->value)) {
+                \Storage::disk('public')->delete($old->value);
+            }
+
             $filePath = $value->store("translations/{$this->getTable()}/{$key}/{$locale}", 'public');
 
             $this->translations()->updateOrCreate(
@@ -41,12 +54,19 @@ trait HasTranslations
     }
 
     // update with multi lang
+//    public function translateArray(array $data, string $locale)
+//    {
+//        foreach ($this->translatableFields ?? [] as $field) {
+//            if (isset($data[$field])) {
+//                $this->setTranslation($field, $data[$field], $locale);
+//            }
+//        }
+//    }
+
     public function translateArray(array $data, string $locale)
     {
-        foreach ($this->translatableFields ?? [] as $field) {
-            if (isset($data[$field])) {
-                $this->setTranslation($field, $data[$field], $locale);
-            }
+        foreach ($data as $key => $value) {
+            $this->setTranslation($key, $value, $locale);
         }
     }
 }

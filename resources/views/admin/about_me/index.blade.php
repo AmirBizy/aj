@@ -28,56 +28,81 @@
                                             @csrf
                                             @method('PATCH')
                                             <div class="tab-content">
-                                                @foreach (LaravelLocalization::getSupportedLocales() as $localeItemCode => $itemProps)
-                                                    <div class="tab-pane {{ $loop->first ? 'active' : '' }}" id="lang-tab-{{ $localeItemCode }}">
+                                                @foreach (LaravelLocalization::getSupportedLocales() as $locale_key => $locale)
+                                                    <div class="tab-pane {{ $loop->first ? 'active' : '' }}" id="lang-tab-{{ $locale_key }}">
                                                         <div class="row gy-4 mt-0">
-                                                            @php
-                                                                $fieldTypes = $about_me->getFieldTypes();
-                                                                $fields = $about_me->getOrderedTranslatableFields();
-                                                            @endphp
-                                                            @foreach ($fields as $field => $label)
-                                                                @php
-                                                                    $type = $fieldTypes[$field] ?? 'text';
-                                                                    $inputName = "translations[{$localeItemCode}][{$field}]";
-                                                                    $inputId = "field-{$localeItemCode}-{$field}";
-                                                                @endphp
-                                                                @if($type === 'textarea')
-                                                                    <div class="col-12">
-                                                                        <div class="form-group">
-                                                                            <label class="form-label" for="{{ $inputId }}">{{ $label }}</label>
-                                                                            <div class="form-control-wrap">
-                                                                                <textarea type="text" name="{{ $inputName }}" class="form-control summernote-basic" id="{{ $inputId }}">{{ $about_me->getTranslation($field, $localeItemCode) }}</textarea>
-                                                                            </div>
-                                                                        </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][title]">عنوان</label>
+                                                                    <div class="form-control-wrap">
+                                                                        <input type="text" name="translations[{{ $locale_key }}][title]" class="form-control" id="translations[{{ $locale_key }}][title]" value="{{ old("translations.$locale_key.title", $about_me->getTranslation('title', $locale_key)) }}" />
                                                                     </div>
-                                                                    @elseif($type === 'file')
-                                                                    <div class="col-lg-6">
-                                                                        <div class="form-group">
-                                                                            <label class="form-label" for="{{ $inputId }}">{{ $label }}</label>
-                                                                            <div class="form-control-wrap">
-                                                                                <input type="file" name="{{ $inputName }}" class="form-control" id="{{ $inputId }}" />
-                                                                                @php
-                                                                                    $filePath = $about_me->getTranslation($field, $localeItemCode);
-                                                                                @endphp
-                                                                                @if($filePath)
-                                                                                    <div class="mt-2">
-                                                                                        <a href="{{ asset('storage/' . $filePath) }}" target="_blank">مشاهده فایل فعلی</a>
-                                                                                    </div>
-                                                                                @endif
-                                                                            </div>
-                                                                        </div>
+                                                                    @error("translations.$locale_key.title")
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][btn_title]">عنوان دکمه</label>
+                                                                    <div class="form-control-wrap">
+                                                                        <input type="text" name="translations[{{ $locale_key }}][btn_title]" class="form-control" id="translations[{{ $locale_key }}][btn_title]" value="{{ old("translations.$locale_key.btn_title", $about_me->getTranslation('btn_title', $locale_key)) }}" />
                                                                     </div>
-                                                                @else
-                                                                    <div class="col-lg-6">
-                                                                        <div class="form-group">
-                                                                            <label class="form-label" for="{{ $inputId }}">{{ $label }}</label>
-                                                                            <div class="form-control-wrap">
-                                                                                <input type="text" name="{{ $inputName }}" value="{{ $about_me->getTranslation($field, $localeItemCode) }}" class="form-control" id="{{ $inputId }}" placeholder="نگهدارنده متن ورودی" />
-                                                                            </div>
-                                                                        </div>
+                                                                    @error("translations.$locale_key.btn_title")
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][btn_link]">لینک دکمه</label>
+                                                                    <div class="form-control-wrap">
+                                                                        <input type="text" name="translations[{{ $locale_key }}][btn_link]" class="form-control" id="translations[{{ $locale_key }}][btn_link]" value="{{ old("translations.$locale_key.btn_link", $about_me->getTranslation('btn_link', $locale_key)) }}" />
                                                                     </div>
-                                                                @endif
-                                                            @endforeach
+                                                                    @error("translations.$locale_key.btn_link")
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][image]">تصویر</label>
+                                                                    <div class="form-control-wrap">
+                                                                        <input type="file" name="translations[{{ $locale_key }}][image]" class="form-control" id="translations[{{ $locale_key }}][image]" />
+                                                                    </div>
+                                                                    @if($about_me->getTranslation('image', $locale_key))
+                                                                        <a href="{{ url($about_me->getTranslation('image', $locale_key)) }}" class="mt-1 text-primary d-block" target="_blank">مشاهده تصویر</a>
+                                                                    @endif
+                                                                    @error("translations.$locale_key.image")
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][resume]">رزومه</label>
+                                                                    <div class="form-control-wrap">
+                                                                        <input type="file" name="translations[{{ $locale_key }}][resume]" class="form-control" id="translations[{{ $locale_key }}][resume]" />
+                                                                    </div>
+                                                                    @if($about_me->getTranslation('resume', $locale_key))
+                                                                        <a href="{{ url($about_me->getTranslation('resume', $locale_key)) }}" class="mt-1 text-primary d-block" target="_blank">مشاهده رزومه</a>
+                                                                    @endif
+                                                                    @error("translations.$locale_key.resume")
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][content]">متن</label>
+                                                                    <div class="form-control-wrap">
+                                                                        <textarea type="text" name="translations[{{ $locale_key }}][content]" class="form-control summernote-basic" id="translations[{{ $locale_key }}][content]">{{ old("translations.$locale_key.content", $about_me->getTranslation('content', $locale_key)) }}</textarea>
+                                                                    </div>
+                                                                    @error("translations.$locale_key.content")
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 @endforeach
