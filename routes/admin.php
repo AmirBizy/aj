@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AboutMeController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\SettingController;
 use Illuminate\Support\Facades\Route;
 
 // Admin Routes
@@ -22,6 +23,10 @@ Route::group(
         // about me
         Route::get('/about-me', [AboutMeController::class , 'index'])->name('about_me.index');
         Route::patch('/about-me/update', [AboutMeController::class , 'update'])->name('about_me.update');
+
+        // setting
+        Route::get('/setting', [SettingController::class , 'index'])->name('setting.index');
+        Route::patch('/setting/update', [SettingController::class , 'update'])->name('setting.update');
     }
 );
 // Admin Routes

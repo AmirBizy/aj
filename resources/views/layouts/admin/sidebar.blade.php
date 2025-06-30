@@ -62,6 +62,13 @@
                         </ul>
                     </li>
                     <!-- .nk-menu-item -->
+                    <li class="nk-menu-item {{ Str::startsWith(Route::currentRouteName(), ['admin.setting.index']) ? 'active current-page' : '' }}">
+                        <a href="{{ route('admin.setting.index') }}" class="nk-menu-link">
+                            <span class="nk-menu-icon"><em class="icon ni ni-setting"></em></span>
+                            <span class="nk-menu-text">تنظیمات</span>
+                        </a>
+                    </li>
+                    <!-- .nk-menu-item -->
                 </ul>
                 <!-- .nk-menu -->
             </div>
