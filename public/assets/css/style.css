@@ -37,7 +37,7 @@ Version      : 1.0
 @import "custom.css";
 
 :root {
-    --main-color: #9f9f9f;
+    --main-color: #fff;
     --heading-color: #fff;
     /*--primary-color: #eb5d3a;*/
     --primary-color: #eb5d3a;

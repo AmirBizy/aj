@@ -16,8 +16,12 @@
                                 {!! $about_me->getTranslation('content') !!}
                             </div>
                         @endif
-                        @if($about_me && $about_me->getTranslation('show_resume_btn') && $about_me->getTranslation('show_resume_btn') == 'active')
-                            <div class="hero-btns"><a href="{{ $about_me->getTranslation('btn_link') ?? url('/') }}" class="theme-btn">{!! $about_me->getTranslation('btn_title') !!} <i class="ri-mail-send-line"></i></a></div>
+                        @if($about_me && ($about_me->getTranslation('btn_link') || $about_me->getTranslation('resume')))
+                            @if ($about_me->getTranslation('btn_link'))
+                                <div class="hero-btns"><a href="{{ $about_me->getTranslation('btn_link') ?? url('/') }}" class="theme-btn">{!! $about_me->getTranslation('btn_title') !!} <i class="ri-mail-send-line"></i></a></div>
+                            @elseif($about_me->getTranslation('resume'))
+                                <div class="hero-btns"><a href="{{ $about_me->getTranslation('resume') ? url($about_me->getTranslation('resume')) : url('/') }}" class="theme-btn">{!! $about_me->getTranslation('btn_title') !!} <i class="ri-mail-send-line"></i></a></div>
+                            @endif
                         @endif
                     </div>
                 </div>
@@ -28,49 +32,53 @@
         <div class="container">
             <div class="resume-items">
                 <div class="row">
-                    <div class="col-xl-6 col-md-6">
-                        <div class="single-resume"><h2>{{ __('messages.experience') }}</h2>
-                            <div class="experience-list">
-                                <div class="resume-item wow fadeInUp delay-0-3s">
-                                    <div class="icon"><i class="ri-book-line"></i></div>
-                                    <div class="content"><span class="years">2021 - Present</span><h4>Themeforest
-                                            Market</h4><span class="company">Web Designer</span></div>
-                                </div>
-                                <div class="resume-item wow fadeInUp delay-0-3s">
-                                    <div class="icon"><i class="ri-book-line"></i></div>
-                                    <div class="content"><span class="years">2021 - 2023</span><h4>Envato Theme
-                                            Developer</h4><span class="company">Web Development</span></div>
-                                </div>
-                                <div class="resume-item wow fadeInUp delay-0-3s">
-                                    <div class="icon"><i class="ri-book-line"></i></div>
-                                    <div class="content"><span class="years">2021 - 2022</span><h4>Marketing Expert GRP</h4>
-                                        <span class="company">Web Developer & Business Partner</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-md-6">
-                        <div class="experience-list">
-                            <div class="single-resume"><h2>{{ __('messages.education') }}</h2>
-                                <div class="resume-item wow fadeInUp delay-0-3s">
-                                    <div class="icon"><i class="ri-book-line"></i></div>
-                                    <div class="content"><span class="years">2013 - 2015</span><h4>Bachelor Degree of
-                                            Information Technology</h4><span class="company">State University bangladesh</span>
+                    @if($about_me && $about_me->getTranslation('experiences_show_status') && $about_me->getTranslation('experiences_show_status') == 'active')
+                        <div class="col-xl-6 col-md-6">
+                            <div class="single-resume"><h2>{{ __('messages.experience') }}</h2>
+                                <div class="experience-list">
+                                    <div class="resume-item wow fadeInUp delay-0-3s">
+                                        <div class="icon"><i class="ri-book-line"></i></div>
+                                        <div class="content"><span class="years">2021 - Present</span><h4>Themeforest
+                                                Market</h4><span class="company">Web Designer</span></div>
+                                    </div>
+                                    <div class="resume-item wow fadeInUp delay-0-3s">
+                                        <div class="icon"><i class="ri-book-line"></i></div>
+                                        <div class="content"><span class="years">2021 - 2023</span><h4>Envato Theme
+                                                Developer</h4><span class="company">Web Development</span></div>
+                                    </div>
+                                    <div class="resume-item wow fadeInUp delay-0-3s">
+                                        <div class="icon"><i class="ri-book-line"></i></div>
+                                        <div class="content"><span class="years">2021 - 2022</span><h4>Marketing Expert GRP</h4>
+                                            <span class="company">Web Developer & Business Partner</span></div>
                                     </div>
                                 </div>
-                                <div class="resume-item wow fadeInUp delay-0-3s">
-                                    <div class="icon"><i class="ri-book-line"></i></div>
-                                    <div class="content"><span class="years">2021 - 2024</span><h4>Higher secoundery
-                                            Education</h4><span class="company">Premium College United VC</span></div>
-                                </div>
-                                <div class="resume-item wow fadeInUp delay-0-3s">
-                                    <div class="icon"><i class="ri-book-line"></i></div>
-                                    <div class="content"><span class="years">2021 - 2024</span><h4>Webster College</h4><span
-                                            class="company">UI/UX Design</span></div>
+                            </div>
+                        </div>
+                    @endif
+                    @if($about_me && $about_me->getTranslation('education_show_status') && $about_me->getTranslation('education_show_status') == 'active')
+                        <div class="col-xl-6 col-md-6">
+                            <div class="experience-list">
+                                <div class="single-resume"><h2>{{ __('messages.education') }}</h2>
+                                    <div class="resume-item wow fadeInUp delay-0-3s">
+                                        <div class="icon"><i class="ri-book-line"></i></div>
+                                        <div class="content"><span class="years">2013 - 2015</span><h4>Bachelor Degree of
+                                                Information Technology</h4><span class="company">State University bangladesh</span>
+                                        </div>
+                                    </div>
+                                    <div class="resume-item wow fadeInUp delay-0-3s">
+                                        <div class="icon"><i class="ri-book-line"></i></div>
+                                        <div class="content"><span class="years">2021 - 2024</span><h4>Higher secoundery
+                                                Education</h4><span class="company">Premium College United VC</span></div>
+                                    </div>
+                                    <div class="resume-item wow fadeInUp delay-0-3s">
+                                        <div class="icon"><i class="ri-book-line"></i></div>
+                                        <div class="content"><span class="years">2021 - 2024</span><h4>Webster College</h4><span
+                                                class="company">UI/UX Design</span></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -129,19 +137,20 @@
             </div>
         </div>
     </section>
-    <section class="call-to-action-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="about-content-part call-to-action-part wow fadeInUp delay-0-2s text-center"><h2>Are You
-                            Ready to kickstart your project with a touch of magic?</h2>
-                        <p>Reach out and let's make it happen ✨. I'm also available for full-time or Part-time opportunities
-                            to push the boundaries of design and deliver exceptional work.</p>
-                        <div class="hero-btns"><a href="contact.html" class="theme-btn">Let's Talk<i
-                                    class="ri-download-line"></i></a></div>
+    @if($setting && $setting->getTranslation('show_call_to_action_box') && $setting->getTranslation('show_call_to_action_box') == 'active' && $setting->getTranslation('call_to_action_text'))
+        <section class="call-to-action-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="call-to-action-part wow fadeInUp delay-0-2s text-center">
+                            {!! $setting->getTranslation('call_to_action_text') !!}
+                            @if($setting && $setting->getTranslation('call_to_action_btn_title'))
+                                <div class="hero-btns"><a href="{{ route('home.contact') }}" class="theme-btn"> {{ $setting->getTranslation('call_to_action_btn_title') }} <i class="ri-download-line"></i></a></div>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 @endsection

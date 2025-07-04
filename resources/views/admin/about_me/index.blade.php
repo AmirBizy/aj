@@ -66,7 +66,7 @@
                                                             </div>
                                                             <div class="col-lg-4">
                                                                 <div class="form-group">
-                                                                    <label class="form-label" for="translations[{{ $locale_key }}][show_resume_btn]">نمایش دکمه رزومه</label>
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][show_resume_btn]">نمایش دکمه دانلود رزومه</label>
                                                                     <div class="form-control-select">
                                                                         <select name="translations[{{ $locale_key }}][show_resume_btn]" id="translations[{{ $locale_key }}][show_resume_btn]" class="form-control">
                                                                             <option value="active" {{ $about_me && $about_me->getTranslation('show_resume_btn', $locale_key) == 'active' ? 'selected' : '' }}>نمایش</option>
@@ -102,6 +102,34 @@
                                                                         <a href="{{ url($about_me->getTranslation('resume', $locale_key)) }}" class="mt-1 text-primary d-block" target="_blank">مشاهده رزومه</a>
                                                                     @endif
                                                                     @error("translations.$locale_key.resume")
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][experiences_show_status]">نمایش باکس تجربه ها</label>
+                                                                    <div class="form-control-select">
+                                                                        <select name="translations[{{ $locale_key }}][experiences_show_status]" id="translations[{{ $locale_key }}][experiences_show_status]" class="form-control">
+                                                                            <option value="active" {{ $about_me && $about_me->getTranslation('experiences_show_status', $locale_key) == 'active' ? 'selected' : '' }}>نمایش</option>
+                                                                            <option value="de_active" {{ $about_me && $about_me->getTranslation('experiences_show_status', $locale_key) == 'de_active' ? 'selected' : '' }}>عدم نمایش</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    @error("translations.$locale_key.education_show_status")
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][education_show_status]">نمایش باکس تحصیلات</label>
+                                                                    <div class="form-control-select">
+                                                                        <select name="translations[{{ $locale_key }}][education_show_status]" id="translations[{{ $locale_key }}][education_show_status]" class="form-control">
+                                                                            <option value="active" {{ $about_me && $about_me->getTranslation('education_show_status', $locale_key) == 'active' ? 'selected' : '' }}>نمایش</option>
+                                                                            <option value="de_active" {{ $about_me && $about_me->getTranslation('education_show_status', $locale_key) == 'de_active' ? 'selected' : '' }}>عدم نمایش</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    @error("translations.$locale_key.education_show_status")
                                                                         <small class="text-danger">{{ $message }}</small>
                                                                     @enderror
                                                                 </div>

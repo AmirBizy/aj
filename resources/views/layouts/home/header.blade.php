@@ -2,10 +2,17 @@
     <div class="header-upper">
         <div class="container">
             <div class="header-inner d-flex align-items-center">
-                <div class="logo-outer">
-                    <div class="logo"><a href="{{ route('home.index') }}"><img src="{{ url('assets/images/logo.png') }}" alt="Logo" title="Logo"></a>
+                @if($setting && $setting->getTranslation('logo'))
+                    <div class="logo-outer">
+                        <div class="logo"><a href="{{ route('home.index') }}"><img src="{{ url($setting->getTranslation('logo')) }}" alt="{{ $setting->getTranslation('title') ?? 'Amirreza Jafari' }}" title="{{ $setting->getTranslation('title') ?? 'Amirreza Jafari' }}"></a>
+                        </div>
                     </div>
-                </div>
+                @else
+                    <div class="logo-outer">
+                        <div class="logo"><a href="{{ route('home.index') }}"><img src="{{ url('assets/images/logo.png') }}" alt="Logo" title="Logo"></a>
+                        </div>
+                    </div>
+                @endif
                 <div class="nav-outer clearfix mx-auto">
                     <nav class="main-menu navbar-expand-lg">
                         <div class="navbar-header">

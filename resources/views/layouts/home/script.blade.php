@@ -12,7 +12,7 @@
 
 <script src="{{ url('assets/js/app.js') }}"></script>
 
-<script>
+{{-- <script>
     let startTime;
 
     function startTimer() {
@@ -26,6 +26,6 @@
             window.location.href = `{{ route('admin.index') }}`;
         }
     }
-</script>
+</script> --}}
 
 @yield('script')

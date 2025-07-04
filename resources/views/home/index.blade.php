@@ -121,18 +121,20 @@
             </div>
         </div>
     </section>
-    <section class="call-to-action-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="call-to-action-part wow fadeInUp delay-0-2s text-center"><h2>Are You Ready to kickstart your
-                            project with a touch of magic?</h2>
-                        <p>Reach out and let's make it happen ✨. I'm also available for full-time or Part-time opportunities
-                            to push the boundaries of design and deliver exceptional work.</p>
-                        <div class="hero-btns"><a href="{{ route('home.contact') }}" class="theme-btn">Let's Talk<i class="ri-download-line"></i></a></div>
+    @if($setting && $setting->getTranslation('show_call_to_action_box') && $setting->getTranslation('show_call_to_action_box') == 'active' && $setting->getTranslation('call_to_action_text'))
+        <section class="call-to-action-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="call-to-action-part wow fadeInUp delay-0-2s text-center">
+                            {!! $setting->getTranslation('call_to_action_text') !!}
+                            @if($setting && $setting->getTranslation('call_to_action_btn_title'))
+                                <div class="hero-btns"><a href="{{ route('home.contact') }}" class="theme-btn"> {{ $setting->getTranslation('call_to_action_btn_title') }} <i class="ri-download-line"></i></a></div>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 @endsection

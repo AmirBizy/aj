@@ -8,7 +8,7 @@
                     <div class="components-preview mx-auto">
                         <div class="nk-block-head nk-block-head-lg wide-sm">
                             <div class="nk-block-head-content">
-                                <h3 class="nk-block-title page-title">درباره من</h3>
+                                <h3 class="nk-block-title page-title">تنظیمات سایت</h3>
                             </div>
                         </div>
                         <div class="nk-block nk-block-lg">
@@ -24,66 +24,111 @@
                                         </ul>
                                     @endif
                                     @if(LaravelLocalization::getSupportedLocales())
-                                        <form action="{{ route('admin.about_me.update') }}" method="post" enctype="multipart/form-data">
+                                        <form action="{{ route('admin.setting.update') }}" method="post" enctype="multipart/form-data">
                                             @csrf
                                             @method('PATCH')
                                             <div class="tab-content">
-                                                @foreach (LaravelLocalization::getSupportedLocales() as $localeItemCode => $itemProps)
-                                                    <div class="tab-pane {{ $loop->first ? 'active' : '' }}" id="lang-tab-{{ $localeItemCode }}">
+                                                @foreach (LaravelLocalization::getSupportedLocales() as $locale_key => $locale)
+                                                    <div class="tab-pane {{ $loop->first ? 'active' : '' }}" id="lang-tab-{{ $locale_key }}">
                                                         <div class="row gy-4 mt-0">
-                                                            @php
-                                                                $fieldTypes = $about_me->getFieldTypes();
-                                                                $fields = $about_me->getOrderedTranslatableFields();
-                                                            @endphp
-                                                            @foreach ($fields as $field => $label)
-                                                                @php
-                                                                    $type = $fieldTypes[$field] ?? 'text';
-                                                                    $inputName = "translations[{$localeItemCode}][{$field}]";
-                                                                    $inputId = "field-{$localeItemCode}-{$field}";
-                                                                @endphp
-                                                                @if($type === 'textarea')
-                                                                    <div class="col-12">
-                                                                        <div class="form-group">
-                                                                            <label class="form-label" for="{{ $inputId }}">{{ $label }}</label>
-                                                                            <div class="form-control-wrap">
-                                                                                <textarea type="text" name="{{ $inputName }}" class="form-control summernote-basic" id="{{ $inputId }}">{{ $about_me->getTranslation($field, $localeItemCode) }}</textarea>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][title]">عنوان سایت</label>
+                                                                    <div class="form-control-wrap">
+                                                                        <input type="text" name="translations[{{ $locale_key }}][title]" class="form-control" id="translations[{{ $locale_key }}][title]" value="{{ $setting->getTranslation('title', $locale_key) !== null ? $setting->getTranslation('title', $locale_key) : null }}" />
+                                                                    </div>
+                                                                    @error("translations.$locale_key.title")
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][logo]">لوگو</label>
+                                                                    <div class="form-control-wrap">
+                                                                        <input type="file" name="translations[{{ $locale_key }}][logo]" class="form-control" id="translations[{{ $locale_key }}][logo]" />
+                                                                    </div>
+                                                                    @if($setting->getTranslation('logo', $locale_key))
+                                                                        <a href="{{ url($setting->getTranslation('logo', $locale_key)) }}" class="mt-1 text-primary d-block" target="_blank">مشاهده لوگو</a>
+                                                                    @endif
+                                                                    @error("translations.$locale_key.logo")
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][show_arrow_up_btn]">نمایش دکمه اومدن به بالا</label>
+                                                                    <div class="form-control-select">
+                                                                        <select name="translations[{{ $locale_key }}][show_arrow_up_btn]" id="translations[{{ $locale_key }}][show_arrow_up_btn]" class="form-control">
+                                                                            <option value="active" {{ $setting && $setting->getTranslation('show_arrow_up_btn', $locale_key) == 'active' ? 'selected' : '' }}>فعال</option>
+                                                                            <option value="de_active" {{ $setting && $setting->getTranslation('show_arrow_up_btn', $locale_key) == 'de_active' ? 'selected' : '' }}>غیرفعال</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    @error("translations.$locale_key.show_arrow_up_btn")
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12">
+                                                                <div class="container border border-red-900 py-1 rounded">
+                                                                    <div class="row">
+                                                                        <div class="col-12">
+                                                                            <div class="form-group">
+                                                                                <label class="form-label" for="translations[{{ $locale_key }}][call_to_action_text]">متن باکس آخر تمام صفحات</label>
+                                                                                <div class="form-control-wrap">
+                                                                                    <textarea type="text" name="translations[{{ $locale_key }}][call_to_action_text]" class="form-control summernote-basic" id="translations[{{ $locale_key }}][call_to_action_text]">{{ old("translations.$locale_key.call_to_action_text", $setting->getTranslation('call_to_action_text', $locale_key)) }}</textarea>
+                                                                                </div>
+                                                                                @error("translations.$locale_key.call_to_action_text")
+                                                                                    <small class="text-danger">{{ $message }}</small>
+                                                                                @enderror
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-4 mt-4">
+                                                                            <div class="form-group">
+                                                                                <label class="form-label" for="translations[{{ $locale_key }}][call_to_action_btn_title]">عنوان دکمه ( مربوط به باکس متن بالا )</label>
+                                                                                <div class="form-control-wrap">
+                                                                                    <input type="text" name="translations[{{ $locale_key }}][call_to_action_btn_title]" class="form-control" id="translations[{{ $locale_key }}][call_to_action_btn_title]" value="{{ $setting->getTranslation('call_to_action_btn_title', $locale_key) !== null ? $setting->getTranslation('call_to_action_btn_title', $locale_key) : null }}" />
+                                                                                </div>
+                                                                                @error("translations.$locale_key.call_to_action_btn_title")
+                                                                                    <small class="text-danger">{{ $message }}</small>
+                                                                                @enderror
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-4 mt-4">
+                                                                            <div class="form-group">
+                                                                                <label class="form-label" for="translations[{{ $locale_key }}][show_call_to_action_box]">نمایش باکس در تمامی صفحات</label>
+                                                                                <div class="form-control-select">
+                                                                                    <select name="translations[{{ $locale_key }}][show_call_to_action_box]" id="translations[{{ $locale_key }}][show_call_to_action_box]" class="form-control">
+                                                                                        <option value="active" {{ $setting && $setting->getTranslation('show_call_to_action_box', $locale_key) == 'active' ? 'selected' : '' }}>فعال</option>
+                                                                                        <option value="de_active" {{ $setting && $setting->getTranslation('show_call_to_action_box', $locale_key) == 'de_active' ? 'selected' : '' }}>غیرفعال</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                                @error("translations.$locale_key.show_call_to_action_box")
+                                                                                    <small class="text-danger">{{ $message }}</small>
+                                                                                @enderror
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    @elseif($type === 'file')
-                                                                    <div class="col-lg-6">
-                                                                        <div class="form-group">
-                                                                            <label class="form-label" for="{{ $inputId }}">{{ $label }}</label>
-                                                                            <div class="form-control-wrap">
-                                                                                <input type="file" name="{{ $inputName }}" class="form-control" id="{{ $inputId }}" />
-                                                                                @php
-                                                                                    $filePath = $about_me->getTranslation($field, $localeItemCode);
-                                                                                @endphp
-                                                                                @if($filePath)
-                                                                                    <div class="mt-2">
-                                                                                        <a href="{{ asset('storage/' . $filePath) }}" target="_blank">مشاهده فایل فعلی</a>
-                                                                                    </div>
-                                                                                @endif
-                                                                            </div>
-                                                                        </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][footer_text]">متن فوتر</label>
+                                                                    <div class="form-control-wrap">
+                                                                        <textarea type="text" name="translations[{{ $locale_key }}][footer_text]" class="form-control summernote-basic" id="translations[{{ $locale_key }}][footer_text]">{{ old("translations.$locale_key.footer_text", $setting->getTranslation('footer_text', $locale_key)) }}</textarea>
                                                                     </div>
-                                                                @else
-                                                                    <div class="col-lg-6">
-                                                                        <div class="form-group">
-                                                                            <label class="form-label" for="{{ $inputId }}">{{ $label }}</label>
-                                                                            <div class="form-control-wrap">
-                                                                                <input type="text" name="{{ $inputName }}" value="{{ $about_me->getTranslation($field, $localeItemCode) }}" class="form-control" id="{{ $inputId }}" placeholder="نگهدارنده متن ورودی" />
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                @endif
-                                                            @endforeach
+                                                                    @error("translations.$locale_key.footer_text")
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 @endforeach
                                             </div>
                                             <div class="col-12 mt-5">
-                                                <button onclick="return confirm('برای ویرایش اطلاعات درباره من مطمئن هستید؟');" type="submit" class="btn btn-primary">ویرایش درباره من</button>
+                                                <button onclick="return confirm('برای ویرایش اطلاعات تنظیمات سایت مطمئن هستید؟');" type="submit" class="btn btn-primary">ویرایش تنظیمات سایت</button>
                                             </div>
                                         </form>
                                     @endif
