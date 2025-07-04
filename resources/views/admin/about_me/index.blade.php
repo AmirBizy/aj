@@ -66,6 +66,20 @@
                                                             </div>
                                                             <div class="col-lg-4">
                                                                 <div class="form-group">
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][show_resume_btn]">نمایش دکمه رزومه</label>
+                                                                    <div class="form-control-select">
+                                                                        <select name="translations[{{ $locale_key }}][show_resume_btn]" id="translations[{{ $locale_key }}][show_resume_btn]" class="form-control">
+                                                                            <option value="active" {{ $about_me && $about_me->getTranslation('show_resume_btn', $locale_key) == 'active' ? 'selected' : '' }}>نمایش</option>
+                                                                            <option value="de_active" {{ $about_me && $about_me->getTranslation('show_resume_btn', $locale_key) == 'de_active' ? 'selected' : '' }}>عدم نمایش</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    @error("translations.$locale_key.show_resume_btn")
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group">
                                                                     <label class="form-label" for="translations[{{ $locale_key }}][image]">تصویر</label>
                                                                     <div class="form-control-wrap">
                                                                         <input type="file" name="translations[{{ $locale_key }}][image]" class="form-control" id="translations[{{ $locale_key }}][image]" />

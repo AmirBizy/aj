@@ -4,15 +4,21 @@
     <section id="about" class="about-single-area innerpage-single-area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4">
-                    <div class="about-image-part wow fadeInUp delay-0-3s pt-4"><img src="{{ url('assets/images/about/aj.png') }}" alt="About Me"></div>
-                </div>
-                <div class="col-lg-8">
+                @if($about_me && $about_me->getTranslation('image'))
+                    <div class="col-lg-4">
+                        <div class="about-image-part wow fadeInUp delay-0-3s pt-4"><img src="{{ url($about_me->getTranslation('image')) }}" alt="About Me"></div>
+                    </div>
+                @endif
+                <div class="col-lg-8 flex-grow-1">
                     <div class="about-content-part wow fadeInUp delay-0-2s"><h2>{{ $about_me->getTranslation('title') }}</h2>
-                        <div>
-                            {!! $about_me->getTranslation('content') !!}
-                        </div>
-                        <div class="hero-btns"><a href="contact.html" class="theme-btn">{!! $about_me->getTranslation('btn_title') !!} <i class="ri-mail-send-line"></i></a></div>
+                        @if($about_me)
+                            <div>
+                                {!! $about_me->getTranslation('content') !!}
+                            </div>
+                        @endif
+                        @if($about_me && $about_me->getTranslation('show_resume_btn') && $about_me->getTranslation('show_resume_btn') == 'active')
+                            <div class="hero-btns"><a href="{{ $about_me->getTranslation('btn_link') ?? url('/') }}" class="theme-btn">{!! $about_me->getTranslation('btn_title') !!} <i class="ri-mail-send-line"></i></a></div>
+                        @endif
                     </div>
                 </div>
             </div>
