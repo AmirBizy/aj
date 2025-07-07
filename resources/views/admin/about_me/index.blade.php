@@ -134,6 +134,20 @@
                                                                     @enderror
                                                                 </div>
                                                             </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][image_show_status]">نمایش باکس نمایش تصویر</label>
+                                                                    <div class="form-control-select">
+                                                                        <select name="translations[{{ $locale_key }}][image_show_status]" id="translations[{{ $locale_key }}][image_show_status]" class="form-control">
+                                                                            <option value="active" {{ $about_me && $about_me->getTranslation('image_show_status', $locale_key) == 'active' ? 'selected' : '' }}>نمایش</option>
+                                                                            <option value="de_active" {{ $about_me && $about_me->getTranslation('image_show_status', $locale_key) == 'de_active' ? 'selected' : '' }}>عدم نمایش</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    @error("translations.$locale_key.image_show_status")
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
                                                             <div class="col-12">
                                                                 <div class="form-group">
                                                                     <label class="form-label" for="translations[{{ $locale_key }}][content]">متن</label>

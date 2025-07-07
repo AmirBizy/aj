@@ -4,7 +4,7 @@
     <section id="about" class="about-single-area innerpage-single-area">
         <div class="container">
             <div class="row">
-                @if($about_me && $about_me->getTranslation('image'))
+                @if($about_me && $about_me->getTranslation('image_show_status') && $about_me->getTranslation('image_show_status') == 'active' && $about_me->getTranslation('image'))
                     <div class="col-lg-4">
                         <div class="about-image-part wow fadeInUp delay-0-3s pt-4"><img src="{{ url($about_me->getTranslation('image')) }}" alt="About Me"></div>
                     </div>
