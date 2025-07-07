@@ -123,6 +123,66 @@
                                                                     @enderror
                                                                 </div>
                                                             </div>
+                                                            <div class="col-12 mt-2">
+                                                                <hr>
+                                                                <h5>وضعیت نمایش منو ها</h5>
+                                                            </div>
+                                                            <div class="col-lg-3 mt-4">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][show_about_me_menu_btn]">نمایش منو درباره من</label>
+                                                                    <div class="form-control-select">
+                                                                        <select name="translations[{{ $locale_key }}][show_about_me_menu_btn]" id="translations[{{ $locale_key }}][show_about_me_menu_btn]" class="form-control">
+                                                                            <option value="active" {{ $setting && $setting->getTranslation('show_about_me_menu_btn', $locale_key) == 'active' ? 'selected' : '' }}>فعال</option>
+                                                                            <option value="de_active" {{ $setting && $setting->getTranslation('show_about_me_menu_btn', $locale_key) == 'de_active' ? 'selected' : '' }}>غیرفعال</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    @error("translations.$locale_key.show_about_me_menu_btn")
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-3 mt-4">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][show_services_menu_btn]">نمایش منو خدمات من</label>
+                                                                    <div class="form-control-select">
+                                                                        <select name="translations[{{ $locale_key }}][show_services_menu_btn]" id="translations[{{ $locale_key }}][show_services_menu_btn]" class="form-control">
+                                                                            <option value="active" {{ $setting && $setting->getTranslation('show_services_menu_btn', $locale_key) == 'active' ? 'selected' : '' }}>فعال</option>
+                                                                            <option value="de_active" {{ $setting && $setting->getTranslation('show_services_menu_btn', $locale_key) == 'de_active' ? 'selected' : '' }}>غیرفعال</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    @error("translations.$locale_key.show_services_menu_btn")
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-3 mt-4">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][show_works_menu_btn]">نمایش منو کار و پروژه ها</label>
+                                                                    <div class="form-control-select">
+                                                                        <select name="translations[{{ $locale_key }}][show_works_menu_btn]" id="translations[{{ $locale_key }}][show_works_menu_btn]" class="form-control">
+                                                                            <option value="active" {{ $setting && $setting->getTranslation('show_works_menu_btn', $locale_key) == 'active' ? 'selected' : '' }}>فعال</option>
+                                                                            <option value="de_active" {{ $setting && $setting->getTranslation('show_works_menu_btn', $locale_key) == 'de_active' ? 'selected' : '' }}>غیرفعال</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    @error("translations.$locale_key.show_works_menu_btn")
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-3 mt-4">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][show_contact_menu_btn]">نمایش منو ارتباط با من</label>
+                                                                    <div class="form-control-select">
+                                                                        <select name="translations[{{ $locale_key }}][show_contact_menu_btn]" id="translations[{{ $locale_key }}][show_contact_menu_btn]" class="form-control">
+                                                                            <option value="active" {{ $setting && $setting->getTranslation('show_contact_menu_btn', $locale_key) == 'active' ? 'selected' : '' }}>فعال</option>
+                                                                            <option value="de_active" {{ $setting && $setting->getTranslation('show_contact_menu_btn', $locale_key) == 'de_active' ? 'selected' : '' }}>غیرفعال</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    @error("translations.$locale_key.show_contact_menu_btn")
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 @endforeach

@@ -39,10 +39,18 @@
                         <div class="navbar-collapse collapse">
                             <ul class="navigation onepage clearfix py-0 rounded">
                                 <li><a class="nav-link-click" href="{{ route('home.index') }}">{{ __('messages.home') }}</a></li>
-                                <li><a class="nav-link-click" href="{{ route('home.about') }}">{{ __('messages.about') }}</a></li>
-                                <li><a class="nav-link-click" href="{{ route('home.services') }}">{{ __('messages.services') }}</a></li>
-                                <li><a class="nav-link-click" href="{{ route('home.works') }}">{{ __('messages.works') }}</a></li>
-                                <li><a class="nav-link-click" href="{{ route('home.contact') }}">{{ __('messages.contact') }}</a></li>
+                                @if($setting && $setting->getTranslation('show_about_me_menu_btn') && $setting->getTranslation('show_about_me_menu_btn') == 'active')
+                                    <li><a class="nav-link-click" href="{{ route('home.about') }}">{{ __('messages.about') }}</a></li>
+                                @endif
+                                @if($setting && $setting->getTranslation('show_services_menu_btn') && $setting->getTranslation('show_services_menu_btn') == 'active')
+                                    <li><a class="nav-link-click" href="{{ route('home.services') }}">{{ __('messages.services') }}</a></li>
+                                @endif
+                                @if($setting && $setting->getTranslation('show_works_menu_btn') && $setting->getTranslation('show_works_menu_btn') == 'active')
+                                    <li><a class="nav-link-click" href="{{ route('home.works') }}">{{ __('messages.works') }}</a></li>
+                                @endif
+                                @if($setting && $setting->getTranslation('show_contact_menu_btn') && $setting->getTranslation('show_contact_menu_btn') == 'active')
+                                    <li><a class="nav-link-click" href="{{ route('home.contact') }}">{{ __('messages.contact') }}</a></li>
+                                @endif
                             </ul>
                         </div>
                     </nav>
