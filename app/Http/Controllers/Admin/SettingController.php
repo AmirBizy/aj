@@ -10,6 +10,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class SettingController extends Controller
 {
+    // return web setting index page
     public function index() {
         $setting = Setting::first();
         return view('admin.setting.index' , compact('setting'));
