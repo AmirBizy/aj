@@ -85,7 +85,7 @@ class AboutMeController extends Controller
     {
         $attributes = [];
 
-        foreach (\Mcamara\LaravelLocalization\Facades\LaravelLocalization::getSupportedLocales() as $locale_key => $locale_info) {
+        foreach (LaravelLocalization::getSupportedLocales() as $locale_key => $locale_info) {
             $langName = $locale_info['native'];
 
             $attributes["translations.$locale_key.title"] = "عنوان ($langName)";

@@ -23,14 +23,21 @@ class SettingController extends Controller
         $setting = Setting::first();
 
         // validation
-        // $rules = [];
-        // foreach (LaravelLocalization::getSupportedLocales() as $locale_key => $locale_info) {
-        //     $rules["translations.$locale_key.title"] = ['required', 'string', 'max:255'];
-        //     $rules["translations.$locale_key.content"] = ['nullable', 'string'];
-        //     $rules["translations.$locale_key.resume"] = ['nullable', 'file', 'mimes:pdf,doc,docx', 'max:2048'];
-        //     $rules["translations.$locale_key.image"] = ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'];
-        // }
-        // $validated = $request->validate($rules, [], $this->customAttributes());
+        $rules = [];
+        foreach (LaravelLocalization::getSupportedLocales() as $locale_key => $locale_info) {
+            $rules["translations.$locale_key.title"] = ['required', 'string', 'max:255'];
+            $rules["translations.$locale_key.logo"] = ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:4098'];
+            $rules["translations.$locale_key.show_arrow_up_btn"] = ['required', 'in:active,de_active'];
+            $rules["translations.$locale_key.call_to_action_text"] = ['nullable', 'string'];
+            $rules["translations.$locale_key.call_to_action_btn_title"] = ['nullable', 'string', 'max:255'];
+            $rules["translations.$locale_key.show_call_to_action_box"] = ['required', 'in:active,de_active'];
+            $rules["translations.$locale_key.footer_text"] = ['nullable', 'string'];
+            $rules["translations.$locale_key.show_about_me_menu_btn"] = ['required', 'in:active,de_active'];
+            $rules["translations.$locale_key.show_services_menu_btn"] = ['required', 'in:active,de_active'];
+            $rules["translations.$locale_key.show_works_menu_btn"] = ['required', 'in:active,de_active'];
+            $rules["translations.$locale_key.show_contact_menu_btn"] = ['required', 'in:active,de_active'];
+        }
+        $validated = $request->validate($rules, [], $this->customAttributes());
 
         // update data with multi language
         $translations = $request->input('translations', []);
@@ -73,20 +80,27 @@ class SettingController extends Controller
         return back();
     }
 
-    // validation field name
-    // private function customAttributes()
-    // {
-    //     $attributes = [];
+    // validation fields
+    private function customAttributes()
+    {
+        $attributes = [];
 
-    //     foreach (\Mcamara\LaravelLocalization\Facades\LaravelLocalization::getSupportedLocales() as $locale_key => $locale_info) {
-    //         $langName = $locale_info['native'];
+        foreach (LaravelLocalization::getSupportedLocales() as $locale_key => $locale_info) {
+            $langName = $locale_info['native'];
 
-    //         $attributes["translations.$locale_key.title"] = "عنوان ($langName)";
-    //         $attributes["translations.$locale_key.content"] = "متن ($langName)";
-    //         $attributes["translations.$locale_key.resume"] = "رزومه ($langName)";
-    //         $attributes["translations.$locale_key.image"] = "تصویر ($langName)";
-    //     }
+            $attributes["translations.$locale_key.title"] = "عنوان ($langName)";
+            $attributes["translations.$locale_key.logo"] = "لوگو ($langName)";
+            $attributes["translations.$locale_key.show_arrow_up_btn"] = "نمایش دکمه اومدن به بالا ($langName)";
+            $attributes["translations.$locale_key.call_to_action_text"] = "متن باکس آخر تمام صفحات ($langName)";
+            $attributes["translations.$locale_key.call_to_action_btn_title"] = "عنوان دکمه ($langName)";
+            $attributes["translations.$locale_key.show_call_to_action_box"] = "نمایش باکس در تمامی صفحات ($langName)";
+            $attributes["translations.$locale_key.footer_text"] = "متن فوتر ($langName)";
+            $attributes["translations.$locale_key.show_about_me_menu_btn"] = "نمایش منو درباره من ($langName)";
+            $attributes["translations.$locale_key.show_services_menu_btn"] = "نمایش منو خدمات من ($langName)";
+            $attributes["translations.$locale_key.show_works_menu_btn"] = "نمایش منو کار و پروژه ها ($langName)";
+            $attributes["translations.$locale_key.show_contact_menu_btn"] = "نمایش منو ارتباط با من ($langName)";
+        }
 
-    //     return $attributes;
-    // }
+        return $attributes;
+    }
 }
