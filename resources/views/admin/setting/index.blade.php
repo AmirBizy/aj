@@ -129,7 +129,7 @@
                                                             </div>
                                                             <div class="col-lg-3 mt-4">
                                                                 <div class="form-group">
-                                                                    <label class="form-label" for="translations[{{ $locale_key }}][show_about_me_menu_btn]">نمایش منو درباره من</label>
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][show_about_me_menu_btn]">نمایش منو و صفحه درباره من</label>
                                                                     <div class="form-control-select">
                                                                         <select name="translations[{{ $locale_key }}][show_about_me_menu_btn]" id="translations[{{ $locale_key }}][show_about_me_menu_btn]" class="form-control">
                                                                             <option value="active" {{ $setting && $setting->getTranslation('show_about_me_menu_btn', $locale_key) == 'active' ? 'selected' : '' }}>فعال</option>
@@ -143,7 +143,7 @@
                                                             </div>
                                                             <div class="col-lg-3 mt-4">
                                                                 <div class="form-group">
-                                                                    <label class="form-label" for="translations[{{ $locale_key }}][show_services_menu_btn]">نمایش منو خدمات من</label>
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][show_services_menu_btn]">نمایش منو و صفحه خدمات من</label>
                                                                     <div class="form-control-select">
                                                                         <select name="translations[{{ $locale_key }}][show_services_menu_btn]" id="translations[{{ $locale_key }}][show_services_menu_btn]" class="form-control">
                                                                             <option value="active" {{ $setting && $setting->getTranslation('show_services_menu_btn', $locale_key) == 'active' ? 'selected' : '' }}>فعال</option>
@@ -157,7 +157,7 @@
                                                             </div>
                                                             <div class="col-lg-3 mt-4">
                                                                 <div class="form-group">
-                                                                    <label class="form-label" for="translations[{{ $locale_key }}][show_works_menu_btn]">نمایش منو کار و پروژه ها</label>
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][show_works_menu_btn]">نمایش منو و صفحه کار و پروژه ها</label>
                                                                     <div class="form-control-select">
                                                                         <select name="translations[{{ $locale_key }}][show_works_menu_btn]" id="translations[{{ $locale_key }}][show_works_menu_btn]" class="form-control">
                                                                             <option value="active" {{ $setting && $setting->getTranslation('show_works_menu_btn', $locale_key) == 'active' ? 'selected' : '' }}>فعال</option>
@@ -171,7 +171,7 @@
                                                             </div>
                                                             <div class="col-lg-3 mt-4">
                                                                 <div class="form-group">
-                                                                    <label class="form-label" for="translations[{{ $locale_key }}][show_contact_menu_btn]">نمایش منو ارتباط با من</label>
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][show_contact_menu_btn]">نمایش منو و صفحه ارتباط با من</label>
                                                                     <div class="form-control-select">
                                                                         <select name="translations[{{ $locale_key }}][show_contact_menu_btn]" id="translations[{{ $locale_key }}][show_contact_menu_btn]" class="form-control">
                                                                             <option value="active" {{ $setting && $setting->getTranslation('show_contact_menu_btn', $locale_key) == 'active' ? 'selected' : '' }}>فعال</option>
