@@ -4,8 +4,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="Amirreza Jafari">
     <meta name="keywords" content="personal, portfolio new, html, one page, bootstrap, new html template, design, creative, onepage, clean, modern">
-    <meta name="author" content="Tanvir Hossain">
-    <title>Amirreza Jafari</title>
+    <meta name="author" content="Amirreza Jafari">
+    <title>{{ View::yieldContent('title') ? View::yieldContent('title') : $web_title }}</title>
     <link rel="apple-touch-icon" href="{{ url('assets/images/favicon.png') }}">
     <link rel="shortcut icon" type="image/png" href="{{ url('assets/images/favicon.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com/">

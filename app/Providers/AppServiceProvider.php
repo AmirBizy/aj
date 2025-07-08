@@ -25,9 +25,12 @@ class AppServiceProvider extends ServiceProvider
             $auth_user = auth()->user();
             $setting = Setting::first();
 
+            // website title
+            $web_title = $setting && $setting->getTranslation('title') ? $setting->getTranslation('title') : 'Amirreza Jafari';
 
             $view->with('auth_user', $auth_user);
             $view->with('setting', $setting);
+            $view->with('web_title', $web_title);
         });
     }
 }
