@@ -8,14 +8,24 @@
                     <div class="about-image-part wow fadeInUp delay-0-3s pt-0"><img src="{{ url('assets/images/about/aj.png') }}" alt="About Me">
                         <h2 class="mt-3">Amirreza Jafari</h2>
                         <p>I build scalable web solutions with creative vision.</p>
-                        <div class="about-social text-center">
-                            <ul>
-                                <li><a href="#"><i class="ri-instagram-fill"></i></a></li>
-                                <li><a href="#"><i class="ri-telegram-fill"></i></a></li>
-                                <li><a href="#"><i class="ri-linkedin-fill"></i></a></li>
-                                <li><a href="#"><i class="ri-github-line"></i></a></li>
-                            </ul>
-                        </div>
+                        @if($setting && ($setting->getTranslation('instagram') || $setting->getTranslation('telegram') || $setting->getTranslation('linkedin') || $setting->getTranslation('github')))
+                            <div class="about-social text-center">
+                                <ul>
+                                    @if($setting->getTranslation('instagram'))
+                                        <li><a href="{{ $setting->getTranslation('instagram') }}" target="_blank"><i class="ri-instagram-fill"></i></a></li>
+                                    @endif
+                                    @if($setting->getTranslation('telegram'))
+                                        <li><a href="{{ $setting->getTranslation('telegram') }}" target="_blank"><i class="ri-telegram-fill"></i></a></li>
+                                    @endif
+                                    @if($setting->getTranslation('linkedin'))
+                                        <li><a href="{{ $setting->getTranslation('linkedin') }}" target="_blank"><i class="ri-linkedin-fill"></i></a></li>
+                                    @endif
+                                    @if($setting->getTranslation('github'))
+                                        <li><a href="{{ $setting->getTranslation('github') }}" target="_blank"><i class="ri-github-line"></i></a></li>
+                                    @endif
+                                </ul>
+                            </div>
+                        @endif
                     </div>
                 </div>
                 <div class="col-lg-8">

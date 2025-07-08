@@ -36,6 +36,10 @@ class SettingController extends Controller
             $rules["translations.$locale_key.show_services_menu_btn"] = ['required', 'in:active,de_active'];
             $rules["translations.$locale_key.show_works_menu_btn"] = ['required', 'in:active,de_active'];
             $rules["translations.$locale_key.show_contact_menu_btn"] = ['required', 'in:active,de_active'];
+            $rules["translations.$locale_key.instagram"] = ['nullable', 'string'];
+            $rules["translations.$locale_key.telegram"] = ['nullable', 'string'];
+            $rules["translations.$locale_key.linkedin"] = ['nullable', 'string'];
+            $rules["translations.$locale_key.github"] = ['nullable', 'string'];
         }
         $validated = $request->validate($rules, [], $this->customAttributes());
 
@@ -99,6 +103,10 @@ class SettingController extends Controller
             $attributes["translations.$locale_key.show_services_menu_btn"] = "نمایش منو خدمات من ($langName)";
             $attributes["translations.$locale_key.show_works_menu_btn"] = "نمایش منو کار و پروژه ها ($langName)";
             $attributes["translations.$locale_key.show_contact_menu_btn"] = "نمایش منو ارتباط با من ($langName)";
+            $attributes["translations.$locale_key.instagram"] = "اینستاگرام ($langName)";
+            $attributes["translations.$locale_key.telegram"] = "تلگرام ($langName)";
+            $attributes["translations.$locale_key.linkedin"] = "لینکدین ($langName)";
+            $attributes["translations.$locale_key.github"] = "گیت هاب ($langName)";
         }
 
         return $attributes;
