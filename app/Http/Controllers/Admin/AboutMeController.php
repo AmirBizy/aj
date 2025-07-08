@@ -27,9 +27,15 @@ class AboutMeController extends Controller
         $rules = [];
         foreach (LaravelLocalization::getSupportedLocales() as $locale_key => $locale_info) {
             $rules["translations.$locale_key.title"] = ['required', 'string', 'max:255'];
+            $rules["translations.$locale_key.btn_title"] = ['nullable', 'string', 'max:255'];
+            $rules["translations.$locale_key.btn_link"] = ['nullable', 'string'];
+            $rules["translations.$locale_key.show_resume_btn"] = ['required', 'in:active,de_active'];
             $rules["translations.$locale_key.content"] = ['nullable', 'string'];
             $rules["translations.$locale_key.resume"] = ['nullable', 'file', 'mimes:pdf,doc,docx', 'max:2048'];
             $rules["translations.$locale_key.image"] = ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'];
+            $rules["translations.$locale_key.experiences_show_status"] = ['required', 'in:active,de_active'];
+            $rules["translations.$locale_key.education_show_status"] = ['required', 'in:active,de_active'];
+            $rules["translations.$locale_key.image_show_status"] = ['required', 'in:active,de_active'];
         }
         $validated = $request->validate($rules, [], $this->customAttributes());
 
@@ -83,9 +89,15 @@ class AboutMeController extends Controller
             $langName = $locale_info['native'];
 
             $attributes["translations.$locale_key.title"] = "عنوان ($langName)";
+            $attributes["translations.$locale_key.btn_title"] = "عنوان دکمه ($langName)";
+            $attributes["translations.$locale_key.btn_link"] = "لینک دکمه ($langName)";
+            $attributes["translations.$locale_key.show_resume_btn"] = "نمایش دکمه دانلود رزومه ($langName)";
             $attributes["translations.$locale_key.content"] = "متن ($langName)";
             $attributes["translations.$locale_key.resume"] = "رزومه ($langName)";
             $attributes["translations.$locale_key.image"] = "تصویر ($langName)";
+            $attributes["translations.$locale_key.experiences_show_status"] = "نمایش باکس تجربه ها ($langName)";
+            $attributes["translations.$locale_key.education_show_status"] = "نمایش باکس تحصیلات ($langName)";
+            $attributes["translations.$locale_key.image_show_status"] = "نمایش باکس نمایش تصویر ($langName)";
         }
 
         return $attributes;
