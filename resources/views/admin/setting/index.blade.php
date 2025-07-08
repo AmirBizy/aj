@@ -70,6 +70,50 @@
                                                                     @enderror
                                                                 </div>
                                                             </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][instagram]">اینستاگرام</label>
+                                                                    <div class="form-control-wrap">
+                                                                        <input type="text" name="translations[{{ $locale_key }}][instagram]" class="form-control" id="translations[{{ $locale_key }}][instagram]" value="{{ $setting->getTranslation('instagram', $locale_key) !== null ? $setting->getTranslation('instagram', $locale_key) : null }}" placeholder="لینک کامل وارد شود" />
+                                                                    </div>
+                                                                    @error("translations.$locale_key.instagram")
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][telegram]">تلگرام</label>
+                                                                    <div class="form-control-wrap">
+                                                                        <input type="text" name="translations[{{ $locale_key }}][telegram]" class="form-control" id="translations[{{ $locale_key }}][telegram]" value="{{ $setting->getTranslation('telegram', $locale_key) !== null ? $setting->getTranslation('telegram', $locale_key) : null }}" placeholder="لینک کامل وارد شود" />
+                                                                    </div>
+                                                                    @error("translations.$locale_key.telegram")
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][linkedin]">لینکدین</label>
+                                                                    <div class="form-control-wrap">
+                                                                        <input type="text" name="translations[{{ $locale_key }}][linkedin]" class="form-control" id="translations[{{ $locale_key }}][linkedin]" value="{{ $setting->getTranslation('linkedin', $locale_key) !== null ? $setting->getTranslation('linkedin', $locale_key) : null }}" placeholder="لینک کامل وارد شود" />
+                                                                    </div>
+                                                                    @error("translations.$locale_key.linkedin")
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][github]">گیت هاب</label>
+                                                                    <div class="form-control-wrap">
+                                                                        <input type="text" name="translations[{{ $locale_key }}][github]" class="form-control" id="translations[{{ $locale_key }}][github]" value="{{ $setting->getTranslation('github', $locale_key) !== null ? $setting->getTranslation('github', $locale_key) : null }}" placeholder="لینک کامل وارد شود" />
+                                                                    </div>
+                                                                    @error("translations.$locale_key.github")
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
                                                             <div class="col-12">
                                                                 <div class="container border border-red-900 py-1 rounded">
                                                                     <div class="row">
