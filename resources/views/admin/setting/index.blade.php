@@ -114,6 +114,17 @@
                                                                     @enderror
                                                                 </div>
                                                             </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][display_title_home_sidebars]">عنوان نمایشی در سایدبار های خانه</label>
+                                                                    <div class="form-control-wrap">
+                                                                        <input type="text" name="translations[{{ $locale_key }}][display_title_home_sidebars]" class="form-control" id="translations[{{ $locale_key }}][display_title_home_sidebars]" value="{{ $setting->getTranslation('display_title_home_sidebars', $locale_key) !== null ? $setting->getTranslation('display_title_home_sidebars', $locale_key) : null }}" />
+                                                                    </div>
+                                                                    @error("translations.$locale_key.display_title_home_sidebars")
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
                                                             <div class="col-12">
                                                                 <div class="container border border-red-900 py-1 rounded">
                                                                     <div class="row">
