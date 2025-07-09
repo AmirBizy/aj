@@ -6,8 +6,12 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="about-image-part wow fadeInUp delay-0-3s pt-0"><img src="{{ url('assets/images/about/aj.png') }}" alt="About Me">
-                        <h2 class="mt-3">Amirreza Jafari</h2>
-                        <p>I build scalable web solutions with creative vision.</p>
+                        @if($setting && $setting->getTranslation('display_title_home_sidebars'))
+                            <h2 class="mt-3">{{ $setting->getTranslation('display_title_home_sidebars') ?? 'Amirreza Jafari' }}</h2>
+                        @endif
+                        @if($setting && $setting->getTranslation('short_text_display_title_home_sidebars'))
+                            <p>{{ $setting->getTranslation('short_text_display_title_home_sidebars') }}</p>
+                        @endif
                         @if($setting && ($setting->getTranslation('instagram') || $setting->getTranslation('telegram') || $setting->getTranslation('linkedin') || $setting->getTranslation('github')))
                             <div class="about-social text-center">
                                 <ul>
