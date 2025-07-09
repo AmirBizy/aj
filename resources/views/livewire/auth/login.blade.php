@@ -50,24 +50,26 @@
                 @error('invalid_login')
                     <div class="alert alert-danger mb-0 mt-3 p-2 text-center">{{ __('messages.invalid_login') }}</div>
                 @enderror
-                <div class="text-center pt-4 pb-3">
-                    <h6 class="overline-title overline-title-sap"><span>{{ __('messages.or') }}</span></h6>
-                </div>
-                <ul class="nav justify-center gx-4">
-                    <li class="nav-item">
-                        <button class="nav-link" wire:click="authGoogle">
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
-                                  <path d="M15.545 6.558a9.4 9.4 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.7 7.7 0 0 1 5.352 2.082l-2.284 2.284A4.35 4.35 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.8 4.8 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.7 3.7 0 0 0 1.599-2.431H8v-3.08z"/>
-                                </svg>
-                            </span>
-                            <div wire:loading class="m-1" wire:target="authGoogle">
-                                <span class="spinner-grow spinner-grow-sm" wire:loading.class="d-flex"  aria-hidden="true"></span>
-                                <span class="visually-hidden" role="status">Loading...</span>
-                            </div>
-                        </button>
-                    </li>
-                </ul>
+                {{-- @if($setting && $setting->getTranslation('google_authentication_status') && $setting->getTranslation('google_authentication_status') == 'active') --}}
+                    <div class="text-center pt-4 pb-3">
+                        <h6 class="overline-title overline-title-sap"><span>{{ __('messages.or') }}</span></h6>
+                    </div>
+                    <ul class="nav justify-center gx-4">
+                        <li class="nav-item">
+                            <button class="nav-link" wire:click="authGoogle">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
+                                    <path d="M15.545 6.558a9.4 9.4 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.7 7.7 0 0 1 5.352 2.082l-2.284 2.284A4.35 4.35 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.8 4.8 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.7 3.7 0 0 0 1.599-2.431H8v-3.08z"/>
+                                    </svg>
+                                </span>
+                                <div wire:loading class="m-1" wire:target="authGoogle">
+                                    <span class="spinner-grow spinner-grow-sm" wire:loading.class="d-flex"  aria-hidden="true"></span>
+                                    <span class="visually-hidden" role="status">Loading...</span>
+                                </div>
+                            </button>
+                        </li>
+                    </ul>
+                {{-- @endif --}}
             </div>
         </div>
     </div>

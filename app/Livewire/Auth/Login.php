@@ -2,17 +2,18 @@
 
 namespace App\Livewire\Auth;
 
-use Laravel\Socialite\Facades\Socialite;
-use Livewire\Attributes\Validate;
+use App\Models\Setting;
 use Livewire\Component;
+use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Auth;
-use Jantinnerezo\LivewireAlert\Facades\LivewireAlert;
+use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\RateLimiter;
+use Jantinnerezo\LivewireAlert\Facades\LivewireAlert;
 
 class Login extends Component
 {
     #[Validate]
-    public $username = '', $password = '';
+    public $username = '', $password = '', $setting;
 
     // validate fileds
     public function rules() {
@@ -20,6 +21,10 @@ class Login extends Component
             'username' => 'required|string',
             'password' => 'required|min:8',
         ];
+    }
+
+    public function mount() {
+        $this->setting = Setting::first();
     }
 
     // normal auth
@@ -52,6 +57,17 @@ class Login extends Component
     // redirect to auth action controller
     public function authGoogle()
     {
+        // auth with google disabled
+        if($this->setting && $this->setting->getTranslation('google_authentication_status') && $this->setting->getTranslation('google_authentication_status') !== 'active') {
+            LivewireAlert::title(__('messages.auth_google_disabled'))
+                ->error()
+                ->toast()
+                ->position('top-end')
+                ->timer(5000)
+                ->show();
+                return;
+        }
+
         return redirect()->to(route('auth.google'));
 //        return Socialite::driver('google')->redirect();
     }
