@@ -42,6 +42,7 @@ class SettingController extends Controller
             $rules["translations.$locale_key.github"] = ['nullable', 'string'];
             $rules["translations.$locale_key.display_title_home_sidebars"] = ['nullable', 'string'];
             $rules["translations.$locale_key.short_text_display_title_home_sidebars"] = ['nullable', 'string'];
+            $rules["translations.$locale_key.home_page_works_and_projects_box_status"] = ['required', 'in:active,de_active'];
         }
         $validated = $request->validate($rules, [], $this->customAttributes());
 
@@ -111,6 +112,7 @@ class SettingController extends Controller
             $attributes["translations.$locale_key.github"] = "گیت هاب ($langName)";
             $attributes["translations.$locale_key.display_title_home_sidebars"] = "عنوان نمایشی در سایدبار های خانه ($langName)";
             $attributes["translations.$locale_key.short_text_display_title_home_sidebars"] = "متن کوتاه زیر عنوان نمایشی در سایدبار های خانه ($langName)";
+            $attributes["translations.$locale_key.home_page_works_and_projects_box_status"] = "وضعیت نمایش باکس کار و پروژه ها در صفحه اصلی ($langName)";
         }
 
         return $attributes;

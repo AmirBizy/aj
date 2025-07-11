@@ -266,6 +266,25 @@
                                                                     @enderror
                                                                 </div>
                                                             </div>
+                                                            <div class="col-12 mt-4">
+                                                                <hr>
+                                                            </div>
+                                                            <div class="col-12 mt-0">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][home_page_works_and_projects_box_status]">وضعیت نمایش باکس کار و پروژه ها در صفحه اصلی</label>
+                                                                    <div class="col-lg-4">
+                                                                        <div class="form-control-select">
+                                                                            <select name="translations[{{ $locale_key }}][home_page_works_and_projects_box_status]" id="translations[{{ $locale_key }}][home_page_works_and_projects_box_status]" class="form-control">
+                                                                                <option value="active" {{ $setting && $setting->getTranslation('home_page_works_and_projects_box_status', $locale_key) == 'active' ? 'selected' : '' }}>فعال</option>
+                                                                                <option value="de_active" {{ $setting && $setting->getTranslation('home_page_works_and_projects_box_status', $locale_key) == 'de_active' ? 'selected' : '' }}>غیرفعال</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    @error("translations.$locale_key.home_page_works_and_projects_box_status")
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 @endforeach
