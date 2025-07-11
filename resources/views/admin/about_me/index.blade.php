@@ -1,5 +1,15 @@
 @extends('layouts.admin.master')
 
+@if(LaravelLocalization::getCurrentLocale() && LaravelLocalization::getCurrentLocale() == 'en')
+    @section('css')
+        <style>
+            select {
+                padding-inline: 25px !important;
+            }
+        </style>
+    @endsection
+@endif
+
 @section('content')
     <div class="nk-content" @if(LaravelLocalization::getCurrentLocale() && LaravelLocalization::getCurrentLocale() == 'fa') dir="rtl" @else dir="ltr" @endif>
         <div class="container-fluid">
