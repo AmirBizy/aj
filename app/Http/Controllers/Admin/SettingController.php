@@ -43,6 +43,14 @@ class SettingController extends Controller
             $rules["translations.$locale_key.display_title_home_sidebars"] = ['nullable', 'string'];
             $rules["translations.$locale_key.short_text_display_title_home_sidebars"] = ['nullable', 'string'];
             $rules["translations.$locale_key.home_page_works_and_projects_box_status"] = ['required', 'in:active,de_active'];
+            $rules["translations.$locale_key.home_page_text"] = ['nullable', 'string'];
+            $rules["translations.$locale_key.work_status"] = [
+                'required',
+                'in:available_for_full_time,available_for_part_time,not_available_engaged_in_an_active_role,soon_available,available_for_remote,not_accepting_new_projects_at_the_moment'
+            ];
+            $rules["translations.$locale_key.show_resume_btn"] = ['required', 'in:active,de_active'];
+            $rules["translations.$locale_key.resume_btn_title"] = ['nullable', 'string'];
+            $rules["translations.$locale_key.resume"] = ['nullable', 'file', 'mimes:pdf,doc,docx', 'max:2048'];
         }
         $validated = $request->validate($rules, [], $this->customAttributes());
 
@@ -113,6 +121,11 @@ class SettingController extends Controller
             $attributes["translations.$locale_key.display_title_home_sidebars"] = "عنوان نمایشی در سایدبار های خانه ($langName)";
             $attributes["translations.$locale_key.short_text_display_title_home_sidebars"] = "متن کوتاه زیر عنوان نمایشی در سایدبار های خانه ($langName)";
             $attributes["translations.$locale_key.home_page_works_and_projects_box_status"] = "وضعیت نمایش باکس کار و پروژه ها در صفحه اصلی ($langName)";
+            $attributes["translations.$locale_key.home_page_text"] = "متن صفحه اصلی ($langName)";
+            $attributes["translations.$locale_key.work_status"] = "وضعیت زمان برای همکاری ($langName)";
+            $attributes["translations.$locale_key.show_resume_btn"] = "نمایش دکمه دانلود رزومه ($langName)";
+            $attributes["translations.$locale_key.resume_btn_title"] = "عنوان دکمه دانلود رزومه ($langName)";
+            $attributes["translations.$locale_key.resume"] = "رزومه ($langName)";
         }
 
         return $attributes;

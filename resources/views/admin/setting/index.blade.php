@@ -165,6 +165,45 @@
                                                                     @enderror
                                                                 </div>
                                                             </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][show_resume_btn]">{{ __('messages.show_resume_btn') }}</label>
+                                                                    <div class="form-control-select">
+                                                                        <select name="translations[{{ $locale_key }}][show_resume_btn]" id="translations[{{ $locale_key }}][show_resume_btn]" class="form-control">
+                                                                            <option value="active" {{ $setting && $setting->getTranslation('show_resume_btn', $locale_key) == 'active' ? 'selected' : '' }}>{{ __('messages.active') }}</option>
+                                                                            <option value="de_active" {{ $setting && $setting->getTranslation('show_resume_btn', $locale_key) == 'de_active' ? 'selected' : '' }}>{{ __('messages.de_active') }}</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    @error("translations.$locale_key.show_resume_btn")
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][resume_btn_title]">عنوان دکمه دانلود رزومه</label>
+                                                                    <div class="form-control-wrap">
+                                                                        <input type="text" name="translations[{{ $locale_key }}][resume_btn_title]" class="form-control" id="translations[{{ $locale_key }}][resume_btn_title]" value="{{ $setting->getTranslation('resume_btn_title', $locale_key) !== null ? $setting->getTranslation('resume_btn_title', $locale_key) : null }}" />
+                                                                    </div>
+                                                                    @error("translations.$locale_key.resume_btn_title")
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][resume]">{{ __('messages.resume') }}</label>
+                                                                    <div class="form-control-wrap">
+                                                                        <input type="file" name="translations[{{ $locale_key }}][resume]" class="form-control" id="translations[{{ $locale_key }}][resume]" />
+                                                                    </div>
+                                                                    @if($setting->getTranslation('resume', $locale_key))
+                                                                        <a href="{{ url($setting->getTranslation('resume', $locale_key)) }}" class="mt-1 text-primary d-block" target="_blank">{{ __('messages.show_resume') }}</a>
+                                                                    @endif
+                                                                    @error("translations.$locale_key.resume")
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
                                                             <div class="col-12">
                                                                 <div class="container border border-red-900 py-1 rounded">
                                                                     <div class="row">
