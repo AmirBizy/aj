@@ -11,23 +11,34 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4">
-                        <div class="contact-content-part wow fadeInUp delay-0-2s">
-                            <div class="single-contact wow fadeInUp" data-wow-delay=".2s">
-                                <div class="contact-icon"><i class="ri-map-pin-line"></i></div>
-                                <h2>our office:</h2>
-                                <p>Jurain,Dhaka Bangladesh</p></div>
-                            <div class="single-contact wow fadeInUp" data-wow-delay=".4s">
-                                <div class="contact-icon"><i class="ri-phone-line"></i></div>
-                                <h2>contact number:</h2>
-                                <p>+1234321321</p></div>
-                            <div class="single-contact wow fadeInUp" data-wow-delay=".6s">
-                                <div class="contact-icon"><i class="ri-mail-line"></i></div>
-                                <h2>Email us:</h2>
-                                <p>websitename@mail.com</p></div>
+                    @if($setting && ($setting->getTranslation('address') || $setting->getTranslation('work_number') || $setting->getTranslation('work_email')))
+                        <div class="col-lg-4">
+                            <div class="contact-content-part wow fadeInUp delay-0-2s">
+                                @if($setting->getTranslation('address'))
+                                    <div class="single-contact wow fadeInUp" data-wow-delay=".2s">
+                                        <div class="contact-icon"><i class="ri-map-pin-line"></i></div>
+                                        <h2>{{ __('messages.work_address') }}</h2>
+                                        <p>{{ $setting->getTranslation('address') }}</p>
+                                    </div>
+                                @endif
+                                @if($setting->getTranslation('work_number'))
+                                    <div class="single-contact wow fadeInUp" data-wow-delay=".4s">
+                                        <div class="contact-icon"><i class="ri-phone-line"></i></div>
+                                        <h2>{{ __('messages.work_number') }}</h2>
+                                        <p><a href="tel:{{ $setting->getTranslation('work_number') }}">{{ $setting->getTranslation('work_number') }}</a></p>
+                                    </div>
+                                @endif
+                                @if($setting->getTranslation('work_email'))
+                                    <div class="single-contact wow fadeInUp" data-wow-delay=".6s">
+                                        <div class="contact-icon"><i class="ri-mail-line"></i></div>
+                                        <h2>{{ __('messages.work_Email') }}</h2>
+                                        <p><a href="mailto:{{ $setting->getTranslation('work_email') }}">{{ $setting->getTranslation('work_email') }}</a></p>
+                                    </div>
+                                @endif
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-8">
+                    @endif
+                    <div class="col-lg-8 flex-grow-1">
                         <div class="contact-form contact-form-area wow fadeInUp delay-0-4s">
                             <form id="contactForm" class="contactForm" name="contactForm"
                                   action="https://wordpressboss.com/cp/bentos-demo/assets/php/form-process.php"

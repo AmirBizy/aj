@@ -53,4 +53,7 @@ return [
     'content' => 'متن / محتوا',
     'update_amout_me_btn' => 'ویرایش درباره من',
     'about_me_update_alert' => 'برای ویرایش اطلاعات درباره من مطمئن هستید؟',
+    'work_number' => 'شماره تماس کاری:',
+    'work_Email' => 'ایمیل کاری:',
+    'work_address' => 'دفتر / آدرس محل کار:',
 ];

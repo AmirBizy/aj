@@ -53,4 +53,7 @@ return [
     'content' => 'Content',
     'update_amout_me_btn' => 'Edit About Me',
     'about_me_update_alert' => 'Are you sure you want to edit information about me?',
+    'work_number' => 'Work Number:',
+    'work_Email' => 'Work Email:',
+    'work_address' => 'Office / Work Address:',
 ];
