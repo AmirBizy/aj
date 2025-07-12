@@ -137,6 +137,35 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-12">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][home_page_text]">متن صفحه اصلی</label>
+                                                                    <div class="form-control-wrap">
+                                                                        <textarea type="text" name="translations[{{ $locale_key }}][home_page_text]" class="form-control summernote-basic" id="translations[{{ $locale_key }}][home_page_text]">{{ old("translations.$locale_key.home_page_text", $setting->getTranslation('home_page_text', $locale_key)) }}</textarea>
+                                                                    </div>
+                                                                    @error("translations.$locale_key.home_page_text")
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][work_status]">وضعیت زمان برای همکاری</label>
+                                                                    <div class="form-control-select">
+                                                                        <select name="translations[{{ $locale_key }}][work_status]" id="translations[{{ $locale_key }}][work_status]" class="form-control">
+                                                                            <option value="available_for_full_time" {{ $setting && $setting->getTranslation('work_status', $locale_key) == 'available_for_full_time' ? 'selected' : '' }}>در دسترس برای همکاری تمام‌وقت</option>
+                                                                            <option value="available_for_part_time" {{ $setting && $setting->getTranslation('work_status', $locale_key) == 'available_for_part_time' ? 'selected' : '' }}>در حال حاضر فقط برای پروژه‌های پاره‌وقت در دسترس هستم</option>
+                                                                            <option value="not_available_engaged_in_an_active_role" {{ $setting && $setting->getTranslation('work_status', $locale_key) == 'not_available_engaged_in_an_active_role' ? 'selected' : '' }}>در حال حاضر در یک همکاری فعال هستم</option>
+                                                                            <option value="soon_available" {{ $setting && $setting->getTranslation('work_status', $locale_key) == 'soon_available' ? 'selected' : '' }}>به‌زودی در دسترس برای فرصت‌های جدید</option>
+                                                                            <option value="available_for_remote" {{ $setting && $setting->getTranslation('work_status', $locale_key) == 'available_for_remote' ? 'selected' : '' }}>در حال حاضر فقط برای همکاری به‌صورت دورکاری در دسترس هستم</option>
+                                                                            <option value="not_accepting_new_projects_at_the_moment" {{ $setting && $setting->getTranslation('work_status', $locale_key) == 'not_accepting_new_projects_at_the_moment' ? 'selected' : '' }}>فعلا پروژه جدیدی نمی‌پذیرم</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    @error("translations.$locale_key.work_status")
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12">
                                                                 <div class="container border border-red-900 py-1 rounded">
                                                                     <div class="row">
                                                                         <div class="col-12">
