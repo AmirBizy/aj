@@ -51,6 +51,9 @@ class SettingController extends Controller
             $rules["translations.$locale_key.show_resume_btn"] = ['required', 'in:active,de_active'];
             $rules["translations.$locale_key.resume_btn_title"] = ['nullable', 'string'];
             $rules["translations.$locale_key.resume"] = ['nullable', 'file', 'mimes:pdf,doc,docx', 'max:2048'];
+            $rules["translations.$locale_key.address"] = ['nullable', 'string'];
+            $rules["translations.$locale_key.work_number"] = ['nullable', 'string'];
+            $rules["translations.$locale_key.work_email"] = ['nullable', 'string'];
         }
         $validated = $request->validate($rules, [], $this->customAttributes());
 
@@ -126,6 +129,9 @@ class SettingController extends Controller
             $attributes["translations.$locale_key.show_resume_btn"] = "نمایش دکمه دانلود رزومه ($langName)";
             $attributes["translations.$locale_key.resume_btn_title"] = "عنوان دکمه دانلود رزومه ($langName)";
             $attributes["translations.$locale_key.resume"] = "رزومه ($langName)";
+            $attributes["translations.$locale_key.address"] = "آدرس محل کار / خانه ($langName)";
+            $attributes["translations.$locale_key.work_number"] = "شماره تماس کاری ($langName)";
+            $attributes["translations.$locale_key.work_email"] = "ایمیل کاری ($langName)";
         }
 
         return $attributes;

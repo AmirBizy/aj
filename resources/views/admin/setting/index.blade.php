@@ -116,6 +116,43 @@
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <div class="form-group">
+                                                                    <label class="form-label" for="translations[{{ $locale_key }}][address]">آدرس محل کار / خانه</label>
+                                                                    <div class="form-control-wrap">
+                                                                        <input type="text" name="translations[{{ $locale_key }}][address]" class="form-control" id="translations[{{ $locale_key }}][address]" value="{{ $setting->getTranslation('address', $locale_key) !== null ? $setting->getTranslation('address', $locale_key) : null }}" placeholder="آدرس کامل وارد شود" />
+                                                                    </div>
+                                                                    @error("translations.$locale_key.address")
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="row">
+                                                                    <div class="col-lg-6">
+                                                                        <div class="form-group">
+                                                                            <label class="form-label" for="translations[{{ $locale_key }}][work_number]">شماره تماس کاری</label>
+                                                                            <div class="form-control-wrap">
+                                                                                <input type="text" name="translations[{{ $locale_key }}][work_number]" class="form-control" id="translations[{{ $locale_key }}][work_number]" value="{{ $setting->getTranslation('work_number', $locale_key) !== null ? $setting->getTranslation('work_number', $locale_key) : null }}" />
+                                                                            </div>
+                                                                            @error("translations.$locale_key.work_number")
+                                                                                <small class="text-danger">{{ $message }}</small>
+                                                                            @enderror
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <div class="form-group">
+                                                                            <label class="form-label" for="translations[{{ $locale_key }}][work_email]">ایمیل کاری</label>
+                                                                            <div class="form-control-wrap">
+                                                                                <input type="text" name="translations[{{ $locale_key }}][work_email]" class="form-control" id="translations[{{ $locale_key }}][work_email]" value="{{ $setting->getTranslation('work_email', $locale_key) !== null ? $setting->getTranslation('work_email', $locale_key) : null }}" />
+                                                                            </div>
+                                                                            @error("translations.$locale_key.work_email")
+                                                                                <small class="text-danger">{{ $message }}</small>
+                                                                            @enderror
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
                                                                     <label class="form-label" for="translations[{{ $locale_key }}][display_title_home_sidebars]">عنوان نمایشی در سایدبار های خانه</label>
                                                                     <div class="form-control-wrap">
                                                                         <input type="text" name="translations[{{ $locale_key }}][display_title_home_sidebars]" class="form-control" id="translations[{{ $locale_key }}][display_title_home_sidebars]" value="{{ $setting->getTranslation('display_title_home_sidebars', $locale_key) !== null ? $setting->getTranslation('display_title_home_sidebars', $locale_key) : null }}" />
