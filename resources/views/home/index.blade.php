@@ -33,16 +33,26 @@
                     </div>
                 </div>
                 <div class="col-lg-8">
-                    <div class="about-content-part wow fadeInUp delay-0-2s">
-{{--                        <p>Hello There!</p>--}}
-                        <h2>{{ __('messages.about_web') }}</h2>
-                        <div class="adress-field">
-                            <ul>
-                                <li><i class="ri-circle-fill"></i>{{ __('messages.available_part_time') }}</li>
-                            </ul>
+                    @if($setting && ($setting->getTranslation('home_page_text') || $setting->getTranslation('work_status')))
+                        <div class="about-content-part wow fadeInUp delay-0-2s">
+                            @if($setting->getTranslation('home_page_text'))
+                                {!! $setting->getTranslation('home_page_text') !!}
+                            @endif
+                            @if($setting->getTranslation('work_status'))
+                                <div class="adress-field">
+                                    @php
+                                        $statusData = $setting->workStatus($setting->getTranslation('work_status') , app()->getLocale());
+                                    @endphp
+                                    <ul>
+                                        <li><i @if($statusData['color']) style="color: {{ $statusData['color'] }}" @endif class="ri-circle-fill"></i>{!! $statusData[app()->getLocale()] !!}</li>
+                                    </ul>
+                                </div>
+                            @endif
+                            @if($setting->getTranslation('resume') && $setting->getTranslation('show_resume_btn') && $setting->getTranslation('show_resume_btn') == 'active')
+                                <div class="hero-btns"><a href="{{ $setting->getTranslation('resume') }}" download="" class="theme-btn">{{ $setting->getTranslation('resume_btn_title') ?? __('messages.download_cv') }}<i class="ri-download-line"></i></a></div>
+                            @endif
                         </div>
-                        <div class="hero-btns"><a href="contact.html" download="" class="theme-btn">{{ __('messages.download_cv') }}<i class="ri-download-line"></i></a></div>
-                    </div>
+                    @endif
                     <div class="about-content-part-bottom wow fadeInUp delay-0-2s"><h2>{{ __('messages.company_i_worked') }}</h2>
                         <div class="company-list">
                             <div class="scroller" data-direction="left" data-speed="slow">
