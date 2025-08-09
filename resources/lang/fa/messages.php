@@ -58,4 +58,6 @@ return [
     'work_Email' => 'ایمیل کاری:',
     'work_address' => 'دفتر / آدرس محل کار:',
     'companies' => 'شرکت ها',
+    'add_company' => 'افزودن شرکت',
+    'add_company_alert' => 'برای افزودن شرکت اطمینان دارید؟',
 ];

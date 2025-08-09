@@ -58,4 +58,6 @@ return [
     'work_Email' => 'Work Email:',
     'work_address' => 'Office / Work Address:',
     'companies' => 'Companies',
+    'add_company' => 'Add Company',
+    'add_company_alert' => 'Are you sure you want to add a company?',
 ];

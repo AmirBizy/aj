@@ -29,7 +29,7 @@
                         </a>
                     </li>
                     <!-- .nk-menu-item -->
-                    <li class="nk-menu-item has-sub {{ Str::startsWith(Route::currentRouteName(), ['admin.companies.index']) ? 'active' : '' }}">
+                    <li class="nk-menu-item has-sub {{ Str::startsWith(Route::currentRouteName(), ['admin.companies.index', 'admin.companies.create']) ? 'active' : '' }}">
                         <a href="#" class="nk-menu-link nk-menu-toggle">
                             <span class="nk-menu-icon"><em class="icon ni ni-network"></em></span>
                             <span class="nk-menu-text">شرکت‌ های همکار</span>
@@ -38,8 +38,8 @@
                             <li class="nk-menu-item {{ Str::startsWith(Route::currentRouteName(), ['admin.companies.index']) ? 'active current-page' : '' }}">
                                 <a href="{{ route('admin.companies.index') }}" class="nk-menu-link"><span class="nk-menu-text">همه شرکت‌ ها</span></a>
                             </li>
-                            <li class="nk-menu-item">
-                                <a href="" class="nk-menu-link"><span class="nk-menu-text">افزودن شرکت‌</span></a>
+                            <li class="nk-menu-item {{ Str::startsWith(Route::currentRouteName(), ['admin.companies.create']) ? 'active current-page' : '' }}">
+                                <a href="{{ route('admin.companies.create') }}" class="nk-menu-link"><span class="nk-menu-text">افزودن شرکت‌</span></a>
                             </li>
                         </ul>
                     </li>
