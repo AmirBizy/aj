@@ -174,7 +174,7 @@
                                                 @endforeach
                                             </div>
                                             <div class="col-12 mt-5">
-                                                <button onclick="return confirm('{{ __('messages.about_me_update_alert') }}');" type="submit" class="btn btn-primary">{{ __('messages.update_amout_me_btn') }}</button>
+                                                <button onclick="return confirm('{{ __('messages.about_me_update_alert') }}');" type="submit" class="btn btn-primary">{{ __('messages.update_about_me_btn') }}</button>
                                             </div>
                                         </form>
                                     @endif

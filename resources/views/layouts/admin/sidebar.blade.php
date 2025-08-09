@@ -29,20 +29,17 @@
                         </a>
                     </li>
                     <!-- .nk-menu-item -->
-                    <li class="nk-menu-item has-sub">
+                    <li class="nk-menu-item has-sub {{ Str::startsWith(Route::currentRouteName(), ['admin.companies.index']) ? 'active' : '' }}">
                         <a href="#" class="nk-menu-link nk-menu-toggle">
-                            <span class="nk-menu-icon"><em class="icon ni ni-calendar-booking-fill"></em></span>
-                            <span class="nk-menu-text">رزروها</span>
+                            <span class="nk-menu-icon"><em class="icon ni ni-network"></em></span>
+                            <span class="nk-menu-text">شرکت‌ های همکار</span>
                         </a>
                         <ul class="nk-menu-sub">
-                            <li class="nk-menu-item">
-                                <a href="html/hotel/bookings.html" class="nk-menu-link"><span class="nk-menu-text">همه رزروها</span></a>
+                            <li class="nk-menu-item {{ Str::startsWith(Route::currentRouteName(), ['admin.companies.index']) ? 'active current-page' : '' }}">
+                                <a href="{{ route('admin.companies.index') }}" class="nk-menu-link"><span class="nk-menu-text">همه شرکت‌ ها</span></a>
                             </li>
                             <li class="nk-menu-item">
-                                <a href="html/hotel/booking-add.html" class="nk-menu-link"><span class="nk-menu-text">افزودن رزرو</span></a>
-                            </li>
-                            <li class="nk-menu-item">
-                                <a href="html/hotel/booking-edit.html" class="nk-menu-link"><span class="nk-menu-text">ویرایش رزرو</span></a>
+                                <a href="" class="nk-menu-link"><span class="nk-menu-text">افزودن شرکت‌</span></a>
                             </li>
                         </ul>
                     </li>

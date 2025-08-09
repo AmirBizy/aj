@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AboutMeController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\AccountController;
+use App\Http\Controllers\Admin\CompanyController;
 use Illuminate\Support\Facades\Route;
 
 // Admin Routes
@@ -32,6 +33,14 @@ Route::group(
         // setting
         Route::get('/account', [AccountController::class , 'index'])->name('account.index');
         Route::patch('/account/update', [AccountController::class , 'update'])->name('account.update');
+
+        // companies
+        Route::get('/companies', [CompanyController::class , 'index'])->name('companies.index');
+        Route::get('/companies/create', [CompanyController::class , 'create'])->name('companies.create');
+        Route::post('/companies/store', [CompanyController::class , 'store'])->name('companies.store');
+        Route::get('/companies/edit/{id}', [CompanyController::class , 'edit'])->name('companies.edit');
+        Route::patch('/companies/update/{id}', [CompanyController::class , 'update'])->name('companies.update');
+        Route::delete('/companies/delete/{id}', [CompanyController::class , 'delete'])->name('companies.delete');
     }
 );
 // Admin Routes
